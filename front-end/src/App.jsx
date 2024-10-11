@@ -8,9 +8,12 @@ import AboutSection from './components/AboutSection';
 import MissionSection from './components/MissionSection';
 import ProgrammeSection from './components/ProgrammeSection';
 import ParrainsSection from './components/ParrainsSection';
-
-
-
+import EventSection from './components/Events';
+import SectionDon from './components/SectionDon';
+import AgirSections from './components/Agir';
+import ActusSection from './components/Actus';
+import ContactSection from './components/Contact';
+import Footer from './components/footer';
 
 
 function App() {
@@ -23,15 +26,16 @@ function App() {
       <MissionSection/>
       <ProgrammeSection/>
       <ParrainsSection/>
-      <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
-        {/* <Route path="/about" element={<AboutPage />} />
-        <Route path="/missions" element={<MissionsPage />} />
-        <Route path="/actions" element={<ActionsPage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/news" element={<NewsPage />} /> */}
-      </Routes>
-    </Router>
+      <EventSection/>
+      <SectionDon/>
+      <AgirSections/>
+      <ActusSection/>
+      <ContactSection/>
+      <Footer/>
+
+
+      
+      </Router>
   );
 }
 
