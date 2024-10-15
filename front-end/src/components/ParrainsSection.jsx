@@ -25,9 +25,9 @@ const ParrainsSection = () => {
           <p className="text-gray-300 mb-6">
             Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
           </p>
-        <Link to="/parrains"> 
-         <button className="bg-orange-500 text-white px-4 py-2 rounded-full">partenaire</button>
-        </Link>
+          <Link to="/parrains">
+            <button className="bg-orange-500 text-white px-4 py-2 rounded-full">partenaire</button>
+          </Link>
         </div>
 
         {/* Carrousel de vidéos à droite */}
@@ -37,9 +37,8 @@ const ParrainsSection = () => {
               <iframe
                 key={video.id}
                 id={`video-${index}`}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                  currentVideo === index ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${currentVideo === index ? 'opacity-100' : 'opacity-0'
+                  }`}
                 src={video.src}
                 title={`Video ${index + 1}`}
                 allow="autoplay; encrypted-media"
