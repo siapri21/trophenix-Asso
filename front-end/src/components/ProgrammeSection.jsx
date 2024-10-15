@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const CardComponent = () => {
+const ProgrammeSection = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-gray-100">
          <div className="text-center mb-10">
@@ -28,9 +29,11 @@ const CardComponent = () => {
               Text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
               standard dummy text ever since the 1500s.
             </p>
-            <button className="bg-blue-200 text-blue-800 px-4 py-2 rounded-lg hover:bg-blue-300">
+           <Link to="/programmes">
+           <button className="bg-blue-200 text-blue-800 px-4 py-2 rounded-lg hover:bg-blue-300">
               Découvrir
             </button>
+           </Link>
           </div>
         </div>
       </div>
@@ -38,4 +41,4 @@ const CardComponent = () => {
   );
 };
 
-export default CardComponent;
+export default ProgrammeSection;

@@ -4,12 +4,13 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "A propos", href: "#", current: true },
-  { name: "Nos missions", href: "#", current: false },
-  { name: "Action", href: "#", current: false },
-  { name: "Actualité", href: "#", current: false },
+  { name: "A propos", href: "/a-propos"},
+  { name: "Evénement", href: "/evenement"},
+  { name: "Programmes", href: "/programmes"},
+  { name: "Actualité", href: "/actualite"},
 ];
 
 function classNames(...classes) {
@@ -39,13 +40,15 @@ export default function Navbar() {
               />
             </DisclosureButton>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start mr-36 ">
             <div className="flex flex-shrink-0 items-center">
-              <img
+             <Link to="/" className="logo">
+             <img
                 alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                src="/asserts/img/logo-groupe-ss-fond.png"
                 className="h-8 w-auto"
               />
+             </Link>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -73,7 +76,7 @@ export default function Navbar() {
               <button
                 onClick={() => (window.location.href = "/donate")}
                 style={{ backgroundColor: "#F4A77A" }}
-                className="relative flex items-center rounded-full text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
+                className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
               >
                 J'adhère
               </button>
@@ -84,7 +87,7 @@ export default function Navbar() {
               <button
                 onClick={() => (window.location.href = "/donate")}
                 style={{ backgroundColor: "#F4A77A" }}
-                className="relative flex items-center rounded-full text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
+                className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
               >
                 Faire un don
               </button>
@@ -105,7 +108,7 @@ export default function Navbar() {
                 item.current
                   ? "bg-gray-200 text-gray-900"
                   : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
-                "block rounded-md px-3 py-2 text-base font-medium"
+                "block rounded-md px-3 py-2 text-base font-medium text-center"
               )}
             >
               {item.name}

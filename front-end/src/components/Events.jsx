@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EventSection = () => {
   return (
@@ -36,9 +37,10 @@ const EventSection = () => {
         <p className="text-gray-700 mb-6">
           Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
         </p>
-        <button className="bg-orange-400 text-white py-2 px-6 rounded-full hover:bg-orange-500 transition duration-300">
-          partenaire
-        </button>
+     <Link to="/Evenement">   
+     <button className="bg-orange-400 text-white py-2 px-6 rounded-full hover:bg-orange-500 transition duration-300">
+          Evenement
+        </button></Link>
       </div>
     </div>
   );

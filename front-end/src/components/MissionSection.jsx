@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MissionSection = () => (
   <div className="bg-[#eaf3fa] py-12 px-4 sm:px-6 lg:px-8">
@@ -24,11 +25,13 @@ const MissionSection = () => (
           <p className="text-gray-600 text-center">
             La mise en page elle-même. L'avantage du Lorem Ipsum...
           </p>
-          <div className="flex justify-center mt-4">
-            <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
+        <Link>
+        <div className="flex justify-center mt-4">
+          <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
               bouton
             </button>
           </div>
+        </Link>
         </div>
       </div>
 
@@ -45,9 +48,11 @@ const MissionSection = () => (
             La mise en page elle-même. L'avantage du Lorem Ipsum...
           </p>
           <div className="flex justify-center mt-4">
-            <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
+          <Link to="/">
+           <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
               bouton
             </button>
+           </Link>
           </div>
         </div>
       </div>
@@ -65,9 +70,11 @@ const MissionSection = () => (
             La mise en page elle-même. L'avantage du Lorem Ipsum...
           </p>
           <div className="flex justify-center mt-4">
-            <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
+          <Link to="/">
+           <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
               bouton
             </button>
+           </Link>
           </div>
         </div>
       </div>

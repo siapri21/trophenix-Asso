@@ -14,7 +14,7 @@ const Header = () => {
           Feugiat adipiscing massa vitae auctor mi massa. Sodales libero viverra cursus sed duis luctus nulla.
         </p>
         <div className="flex justify-center p-9"> {/* Espace réduit ici */}
-          <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4">
+          <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded">
             Adhérer
           </button>
         </div>

@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const VideoCarousel = () => {
+const ParrainsSection = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
 
   const videos = [
-    { id: 1, src: 'https://www.youtube.com/embed/SgvVMvKg2ic?autoplay=0&mute=1' },
-    { id: 2, src: 'https://www.youtube.com/embed/SgvVMvKg2ic?autoplay=0&mute=1' },
-    { id: 3, src: 'https://www.youtube.com/embed/SgvVMvKg2ic?autoplay=0&mute=1' }
+    { id: 1, src: 'https://www.youtube-nocookie.com/embed/hkSnuqwXTKk' },
+    { id: 2, src: 'https://www.youtube-nocookie.com/embed/hkSnuqwXTKk' },
+    { id: 3, src: 'https://www.youtube-nocookie.com/embed/hkSnuqwXTKk' }
   ];
 
   const handleVideoClick = (index) => {
@@ -17,14 +18,16 @@ const VideoCarousel = () => {
 
   return (
     <div className="flex justify-center items-center h-screen  bg-blue-900 ">
-      <div className="max-w-4xl w-full  p-5 rounded-lg  flex">
+      <div className=" max-w-4xl w-full p-5 rounded-lg  flex">
         {/* Texte à gauche */}
         <div className="w-1/2 p-6 text-white">
           <h2 className="text-3xl font-bold mb-4">Purus sagittis fringilla arcu</h2>
           <p className="text-gray-300 mb-6">
             Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
           </p>
-          <button className="bg-orange-500 text-white px-4 py-2 rounded-full">partenaire</button>
+        <Link to="/parrains"> 
+         <button className="bg-orange-500 text-white px-4 py-2 rounded-full">partenaire</button>
+        </Link>
         </div>
 
         {/* Carrousel de vidéos à droite */}
@@ -52,4 +55,4 @@ const VideoCarousel = () => {
   );
 };
 
-export default VideoCarousel;
+export default ParrainsSection;

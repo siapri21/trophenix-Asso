@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => (
   <div className="flex-shrink-0 w-[1440px] h-[854px] bg-[#f4a77a]/[.15] flex justify-center items-center">
@@ -38,7 +39,7 @@ const About = () => (
           {/* Paragraphe (p) centré et espacement ajusté */}
           <p className="flex justify-center items-center self-stretch text-center text-[#2f4858]
            font-['var(--sds-typography-body-font-family)'] text-[var(--sds-typography-body-size-medium)] 
-           font-[var(--sds-typography-body-font-weight-regular)] leading-[140%] mb-4">
+           font-[var(--sds-typography-body-font-weight-regular)] leading-[140%] mb-4 p-10">
             Body text for your whole article or post. Body text for your whole article or post.
             Body text for your whole article or post. We’ll put in some lorem. Body text for 
             your whole article or post.
@@ -46,10 +47,12 @@ const About = () => (
         </div>
 
         {/* Bouton en bas */}
-        <button className="flex justify-center items-center p-4 w-[14.25rem] h-[4.0625rem] 
-        rounded-[0.625rem] bg-[#ff9a61] mt-8 mx-auto text-[#2f4858] font-['Roboto'] text-xl font-medium"> 
+      <Link to="/a-propos">
+      <button className="flex justify-center items-center p-4  ml-32
+        rounded bg-[#ff9a61] mt-8 mx-auto text-[#2f4858] font-['Roboto'] text-xl font-medium"> 
           Button Text
         </button>
+      </Link>
       </div>
     </div>
   </div>

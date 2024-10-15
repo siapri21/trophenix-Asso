@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
  const AgirSections = () => {
     return (
@@ -63,9 +64,10 @@ import React from 'react';
                 La mise en page elle-même. L'avantage du Lorem Ipsum...
               </p>
               <div className="flex justify-center mt-4">
+               <Link to="/mecenat">
                 <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
                   Soutenir
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>

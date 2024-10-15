@@ -1,8 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const ActusSection = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between md:space-x-8 p-8 bg-gray-100">
+
+        {/* Right Text Section */}
+        <div className="w-full md:w-2/5 mt-8 md:mt-0 text-center md:text-left">
+        <h2 className="text-3xl font-bold text-orange-500 mb-4">
+          Purus sagittis fringilla arcu neque.
+        </h2>
+        <p className="text-gray-700 mb-6">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+        <Link to="/actualite">
+        <button className="bg-orange-400 text-white py-2 px-6 rounded hover:bg-orange-500 transition duration-300">
+          Voir nos Actualités
+        </button>
+        </Link>
+      </div> 
+
       {/* Left Image Slider Section */}
       <div className="w-full md:w-3/5">
         {/* Main image */}
@@ -28,18 +46,7 @@ const ActusSection = () => {
         </div>
       </div>
 
-      {/* Right Text Section */}
-      <div className="w-full md:w-2/5 mt-8 md:mt-0 text-center md:text-left">
-        <h2 className="text-3xl font-bold text-orange-500 mb-4">
-          Purus sagittis fringilla arcu neque.
-        </h2>
-        <p className="text-gray-700 mb-6">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-        </p>
-        <button className="bg-orange-400 text-white py-2 px-6 rounded-full hover:bg-orange-500 transition duration-300">
-          Voir nos Actualités
-        </button>
-      </div>
+    
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const ContactSection = () => {
   return (
@@ -11,10 +13,12 @@ const ContactSection = () => {
         <p className="bg-white px-8 py-2 rounded-full text-gray-600">
           Contactez-nous, l’équipe trophenix à votre écoute
         </p>
+       <Link to="/contact">
         <button className="bg-orange-400 text-white py-2 px-6 rounded-full
          hover:bg-orange-500 transition duration-300 mr-6">
           contact-nous
         </button>
+        </Link>
       </div>
     </div>
   );
