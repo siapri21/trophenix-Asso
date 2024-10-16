@@ -3,7 +3,7 @@ import { BiGlobe, BiTimeFive, BiBarChartAlt2 } from 'react-icons/bi';
 
 const Programmes = () => {
   return (
-    <section className="bg-white py-12 px-6 text-center mt-16 flex flex-col items-center">
+    <section className="bg-white py-12 px-6 text-center mt-16 flex flex-col items-center" style={{ marginLeft: '10%', marginRight: '10%' }}>
       {/* First Section: Text and Skewed Image */}
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:ml-6 text-left">
@@ -24,7 +24,7 @@ const Programmes = () => {
       <div className="relative w-full  mt-10">
         <h1 className="text-3xl font-bold text-[#2f4858]">Nos <span className="text-[#50B4D9]">programmes</span> d'aide aux sportifs professionnels.</h1>
         {/* Second New Section: Image on Left, Text on Right */}
-        <div className="mt-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center" style={{ marginLeft: '5%', marginRight: '5%' }}>
+        <div className="mt-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center" >
 
           {/* Left Image */}
           <div className="md:w-1/2 w-full mb-6 md:mb-0">

@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MissionSection = () => (
-  <div className="bg-[#eaf3fa] py-12 px-4 sm:px-6 lg:px-8">
-    {/* Title Section */}
-    <div className="text-center mb-10">
+  <div className=" py-12 px-4 sm:px-6 lg:px-8 " >
+   <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+     {/* Title Section */}
+     <div className="text-center mb-10">
       <h2 className="text-3xl font-bold text-[#2f4858]">Nos missions</h2>
       <p className="mt-2 text-lg text-[#2f4858]">
         Le Lorem Ipsum est simplement du
@@ -79,6 +80,7 @@ const MissionSection = () => (
         </div>
       </div>
     </div>
+   </div>
   </div>
 );
 

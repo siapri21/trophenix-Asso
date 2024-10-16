@@ -17,7 +17,7 @@ const ParrainsSection = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen  bg-blue-900 ">
+    <div className="flex justify-center items-center h-screen bg-[#eaf3fa] ">
       <div className=" max-w-4xl w-full p-5 rounded-lg  flex">
         {/* Texte à gauche */}
         <div className="w-1/2 p-6 text-white">

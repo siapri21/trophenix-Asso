@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
  const AgirSections = () => {
     return (
         <div className="bg-[#eaf3fa] py-12 px-4 sm:px-6 lg:px-8">
-        {/* Title Section */}
+        <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+          {/* Title Section */}
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-[#2f4858]">Je veux agir avec <span className='text-orange-400'>Trophenix</span></h2>
         </div>
@@ -71,6 +72,7 @@ import { Link } from 'react-router-dom';
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     )

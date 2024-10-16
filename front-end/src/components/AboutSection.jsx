@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const About = () => (
-  <div className="flex-shrink-0 w-[1440px] h-[854px] bg-[#f4a77a]/[.15] flex justify-center items-center">
+  <section className="flex-shrink-0  bg-[#f4a77a]/[.15] flex justify-center items-center" >
     <div className="panel_image_content flex flex-shrink-0 items-center pt-[var(--sds-size-space-1600)] 
     pr-[var(--sds-size-space-1600)] pb-[var(--sds-size-space-1600)] pl-[var(--sds-size-space-1600)] 
-    p-16 w-[1230px] h-[611.948px] opacity-[0.8] flex justify-center items-center">
+    p-16 w-[1230px] h-[611.948px] opacity-[0.8] flex justify-center items-center"style={{ marginLeft: '10%', marginRight: '10%' }} >
       {/* Image parent avec URL */}
       <div className="relative flex-shrink-0 w-[554px] h-[412px] bg-cover bg-no-repeat">
         <img src="/asserts/img/2148342044.jpg" className="absolute top-0 left-0 w-full h-full object-cover rounded-[30px]" />
@@ -55,7 +55,7 @@ const About = () => (
       </Link>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default About;

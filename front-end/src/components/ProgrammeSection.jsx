@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ProgrammeSection = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-gray-100">
-         <div className="text-center mb-10">
+         <div className="text-center mb-10"style={{ marginLeft: '10%', marginRight: '10%' }}>
       <h2 className="text-3xl font-bold text-[#2f4858]">Nos Porgrammes</h2>
       <p className="mt-2 text-lg text-[#2f4858]">
         Le Lorem Ipsum est simplement du
