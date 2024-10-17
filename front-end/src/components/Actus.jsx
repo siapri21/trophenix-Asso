@@ -16,7 +16,7 @@ const ActusSection = () => {
   Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
 </p>
 <Link to="/actualite">
-<button className="bg-orange-400 text-white py-2 px-6 rounded hover:bg-orange-500 transition duration-300">
+<button className=" mb-10 bg-orange-400 text-white py-2 px-6 rounded hover:bg-orange-500 transition duration-300">
   Voir nos Actualités
 </button>
 </Link>

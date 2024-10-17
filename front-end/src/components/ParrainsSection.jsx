@@ -1,57 +1,51 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ParrainsSection = () => {
-  const [currentVideo, setCurrentVideo] = useState(0);
-
-  const videos = [
-    { id: 1, src: 'https://www.youtube-nocookie.com/embed/hkSnuqwXTKk' },
-    { id: 2, src: 'https://www.youtube-nocookie.com/embed/hkSnuqwXTKk' },
-    { id: 3, src: 'https://www.youtube-nocookie.com/embed/hkSnuqwXTKk' }
-  ];
-
-  const handleVideoClick = (index) => {
-    setCurrentVideo(index);
-    const videoElement = document.getElementById(`video-${index}`);
-    videoElement.src = videoElement.src.replace('&mute=1', ''); // Activer le son
-  };
-
   return (
-    <div className="flex justify-center items-center h-screen bg-[#eaf3fa] ">
-      <div className=" max-w-4xl w-full p-5 rounded-lg  flex">
-        {/* Texte à gauche */}
-        <div className="w-1/2 p-6 text-white">
-          <h2 className="text-3xl font-bold mb-4">Purus sagittis fringilla arcu</h2>
-          <p className="text-gray-300 mb-6">
-            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-          </p>
-          <Link to="/parrains">
-            <button className="bg-orange-500 text-white px-4 py-2 rounded-full">partenaire</button>
-          </Link>
-        </div>
+    <section>
+      <div className="flex flex-col md:flex-row items-center justify-between" style={{ marginLeft: '10%', marginRight: '10%' }}>
+        
+      <div className="w-full md:w-2/5 mt-8 md:mt-0 text-center md:text-left">
+  <h2 className="text-3xl font-bold text-orange-500 mb-4">
+    Un accompagnement précieux pour nos champions en transition
+  </h2>
+  <p className="text-gray-700 mb-6">
+    Nos parrains et marraines jouent un rôle clé dans le soutien de nos athlètes tout au long de leur reconversion. Grâce à leur expérience, leur bienveillance et leur engagement, ils aident nos sportifs à aborder sereinement cette nouvelle étape de leur vie. Ensemble, ils ouvrent la voie à de nouvelles perspectives professionnelles.
+  </p>
+  <Link to="/parrains">   
+    <button className="bg-orange-400 text-white py-2 px-6 rounded-full hover:bg-orange-500 transition duration-300">
+      Découvrir nos parrains et marraines
+    </button>
+  </Link>
+</div>
 
-        {/* Carrousel de vidéos à droite */}
-        <div className="w-1/2 relative">
-          <div className="relative h-64 overflow-hidden">
-            {videos.map((video, index) => (
-              <iframe
-                key={video.id}
-                id={`video-${index}`}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${currentVideo === index ? 'opacity-100' : 'opacity-0'
-                  }`}
-                src={video.src}
-                title={`Video ${index + 1}`}
-                allow="autoplay; encrypted-media"
-                frameBorder="0"
-                allowFullScreen
-                onClick={() => handleVideoClick(index)}
-              ></iframe>
-            ))}
+        {/* Left Image Slider Section */}
+        <div className="flex w-full md:w-3/5 mt-4 md:m-8">
+          <div className="flex w-full space-x-0">
+            {/* First image */}
+            <img 
+              src="/asserts/img/300.jpg" 
+              alt="Small 1" 
+              className="w-full h-96  object-cover m-0"
+            />
+            {/* Second image */}
+            <img 
+              src="/asserts/img/300.jpg" 
+              alt="Small 2" 
+              className="w-1/3  object-cover m-0"
+            />
+            {/* Third image */}
+            <img 
+              src="/asserts/img/300.jpg" 
+              alt="Small 3" 
+              className="w-1/3  object-cover m-0"
+            />
           </div>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ParrainsSection;
+export default ParrainsSection

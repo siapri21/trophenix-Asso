@@ -3,37 +3,40 @@ import { Link } from 'react-router-dom';
 
 const ProgrammeSection = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gray-100">
-         <div className="text-center mb-10"style={{ marginLeft: '10%', marginRight: '10%' }}>
-      <h2 className="text-3xl font-bold text-[#2f4858]">Nos Porgrammes</h2>
-      <p className="mt-2 text-lg text-[#2f4858]">
-        Le Lorem Ipsum est simplement du
-      </p>
-    </div>
-      {/* Image (enlarged and centered) */}
-      <div className="relative">
-        <img
-          src="/asserts/img/man-woman-running-track-side-view.jpg"
-          alt="Celebrating players"
-          className="rounded-lg object-cover w-[90vw] max-w-[600px] h-auto"
-        />
+    <div className="relative py-16 px-4 bg-gray-100">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-[#2f4858]">Nos Programmes</h2>
+          <p className="mt-2 text-lg text-[#2f4858]">
+            Le Lorem Ipsum est simplement du
+          </p>
+        </div>
 
-        {/* Violet Card (shifted to the right, sticking out 80% of its width) */}
-        <div className="absolute top-1/2 left-1/2 translate-x-[80%] -translate-y-1/2">
-          {/* 
-            translate-x-[80%]: This shifts the card 80% of its width to the right.
-            This will make 80% of the card extend outside of the image's right side.
-          */}
-          <div className="bg-purple-200 w-[80vw] h-[80vw] max-w-[250px] max-h-[250px] rounded-lg flex flex-col items-center justify-center p-4 shadow-lg">
-            <p className="text-gray-600 mb-4 text-center">
-              Text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-              standard dummy text ever since the 1500s.
-            </p>
-           <Link to="/programmes">
-           <button className="bg-blue-200 text-blue-800 px-4 py-2 rounded-lg hover:bg-blue-300">
-              Découvrir
-            </button>
-           </Link>
+        <div className="relative flex justify-center">
+          {/* Image */}
+          <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[600px]">
+            <img
+              src="/asserts/img/man-woman-running-track-side-view.jpg"
+              alt="Celebrating players"
+              className="rounded-lg object-cover w-full h-auto"
+            />
+
+            {/* Card */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 translate-x-[10%] sm:translate-x-[30%] lg:translate-x-[80%] w-[70%] sm:w-[60%] lg:w-[50%] max-w-[180px] sm:max-w-[200px] lg:max-w-[250px]">
+              <div className="bg-purple-200 rounded-lg p-3 sm:p-4 shadow-lg">
+                <p className="text-gray-600 mb-3 sm:mb-4 text-center text-xs sm:text-sm lg:text-base">
+                  Text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+                  standard dummy text ever since the 1500s.
+                </p>
+                <div className="text-center">
+                  <Link to="/programmes">
+                    <button className="bg-blue-200 text-blue-800 px-3 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-300 transition-colors text-xs sm:text-sm lg:text-base">
+                      Découvrir
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
