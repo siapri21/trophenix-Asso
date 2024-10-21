@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Marquee from '../components/Partenaires';
 
 const Contact = () => {
   return (
@@ -8,22 +9,22 @@ const Contact = () => {
             <div className="w-full md:w-1/2 px-4">
           {/* <h2 className="text-2xl font-bold mb-4">Notre équipe</h2> */}
           <div className="flex justify-center space-x-4 mb-6">
-            <img src="/asserts/img/116.png" alt="John Doe" className="w-16 h-16 rounded-full" />
-            <img src="/asserts/img/116.png" alt="Jane Smith" className="w-16 h-16 rounded-full" />
-            <img src="/asserts/img/116.png" alt="Mike Johnson" className="w-16 h-16 rounded-full" />
+            <img src="/asserts/img/ivan.png" alt="John Doe" className="w-20 h-20 rounded-full" />
+            <img src="/asserts/img/jean.png" alt="Jane Smith" className="w-20 h-20 rounded-full" />
+            <img src="/asserts/img/merrine.png" alt="Mike Johnson" className="w-20 h-20 rounded-full" />
           </div>
-
-          <h3 className="text-xl font-semibold mb-2">Notre engagement</h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 text-center font-bold  text-4xl mb-4">
              Nous serions ravis de pouvoir échanger avec vous !
           </p>
-          <ul className="space-y-2 text-gray-600 ">
+
+          {/* <h3 className="text-xl font-semibold mb-2">Notre engagement</h3> */}
+          <ul className="space-y-2 text-gray-600 mt-10 ">
             <li>⭐ <span className='font-bold'>Nous écoutons vos enjeux</span> : Pour vous renseigner et vous épauler sur vos projets de reconversion sportive avec enthousiasme et détermination.</li>
             <li>⭐ <span className='font-bold'>Nous vous présentons notre association</span> : Pour vous présenter nos solutions et vous aider à définir votre démarche de reconversion.</li>
             <li>⭐<span className='font-bold'> Nous vous accompagnons étape par étape</span> : Pour réussir ensemble votre transition vers une nouvelle carrière après le sport professionnel !</li>
           </ul>
           <div className="flex justify-center">
-            <img src="/asserts/img/renaitre.png" alt="Phénix" className="w-36 h-40 mt-20" />
+            <img src="/asserts/img/hand-drawn-phoenix-silhouette_23-2150429160.jpg" alt="Phénix" className="w-36 h-40 mt-20" />
           </div>
         </div>
 
@@ -68,14 +69,22 @@ const Contact = () => {
 
       {/* Logos des partenaires en bas */}
       <div className="mt-12">
-        <h1 className="text-2xl font-bold mb-4 text-center">Ils ont fais le pas, et ne le regrettent pas !</h1>
-        <div className="flex justify-center space-x-8">
-          <img src="/asserts/img/Invitation_Rencontre_Art-SporTech (5).png" alt="Partenaire 1" className="h-12" />
-          <img src="/asserts/img/Invitation_Rencontre_Art-SporTech.png" alt="Partenaire 2" className="h-12" />
-          <img src="/asserts/img/Invitation_Rencontre_Art-SporTech (4).png" alt="Partenaire 3" className="h-12" />
-        </div>
-      </div>
+  <h1 className="text-3xl font-bold mb-4 text-center">
+    Ils ont fait le pas, et ne le regrettent pas !
+  </h1>
+  {/* Si tu veux vraiment utiliser Marquee ici, alors assure-toi de l'ouvrir correctement */}
+  <Marquee>
+  <div className="flex justify-center space-x-8">
+    <img src="/asserts/img/Invitation_Rencontre_Art-SporTech (5).png" alt="Partenaire 1" className="h-12" />
+    <img src="/asserts/img/Invitation_Rencontre_Art-SporTech.png" alt="Partenaire 2" className="h-12" />
+    <img src="/asserts/img/Invitation_Rencontre_Art-SporTech (4).png" alt="Partenaire 3" className="h-12" />
+  </div>
+  {/* Si tu souhaites ajouter Marquee, ouvre et ferme correctement ici */}
+  </Marquee>
+</div>
+
     </div>
+
   )
 }
 

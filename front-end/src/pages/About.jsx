@@ -31,11 +31,9 @@ const About = () => {
         </div>
 
         <div className="md:w-1/2 w-full md:ml-6 text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mt-4">Lorem Ipsum</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mt-4">Notre Histoire</h2>
           <p className="text-lg text-gray-600 leading-relaxed text-center mt-4">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected humour, or
-            randomised words which don't look even slightly believable.
+            Trophenix est une association dédiée à la reconversion des sportifs professionnels, qui vise à accompagner les athlètes dans la transition de leur carrière sportive vers une nouvelle vie professionnelle. Nous comprenons que la fin d'une carrière dans le sport de haut niveau peut être un moment de grande incertitude, et notre mission est de fournir le soutien nécessaire pour assurer une transition réussie vers de nouvelles opportunités."
           </p>
         </div>
       </div>

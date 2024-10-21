@@ -2,11 +2,12 @@
 import React from 'react';
 
 const logos = [
-    { src: "/asserts/img/Invitation_Rencontre_Art-SporTech.png", alt: "aera" },
-    { src: "/asserts/img/Invitation_Rencontre_Art-SporTech (3).png", alt: "Logo Takas" },
-    { src: "/asserts/img/Invitation_Rencontre_Art-SporTech (1).png", alt: "Logo Sport dans la ville" },
-    { src: "/asserts/img/Invitation_Rencontre_Art-SporTech (4).png", alt: "Logo Google" },
-    { src: "/asserts/img/Invitation_Rencontre_Art-SporTech (5).png", alt: "Logo edlv" }
+    { src: "/asserts/img/logoedlv.png", alt: "Logo edlv" },
+    {src: "/asserts/img/Diversidays_Logo-removebg-preview.png", alt:"logo diversidays"},
+    { src: "/asserts/img/aera+logo.png", alt: "aera" },
+    { src: "/asserts/img/Logo-Taka-65-v3.png", alt: "Logo Takas" },
+    { src: "/asserts/img/Orange_S.A.-Logo.wine.png", alt: "Logo de orange" },
+    { src: "/asserts/img/Google-Logo.png", alt: "Logo Google" },
 ];
 
 const Marquee = () => {

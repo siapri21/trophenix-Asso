@@ -9,14 +9,17 @@ const Header = () => {
       }}
     >
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold text-slate-700 text-center ">Bienvenue Trophenix Association</h1>
-        <p className="text-center text-slate-600 p-4">
-          Feugiat adipiscing massa vitae auctor mi massa. Sodales libero viverra cursus sed duis luctus nulla.
-        </p>
+      <h1 className="text-3xl md:text-5xl font-bold text-slate-700 text-center">
+  <span className="text-white">Renaître</span> pour réussir
+</h1>
+
+  <p className="text-center text-slate-600 p-4 md:text-lg">
+    La reconversion est une nouvelle chance pour les athlètes professionnels de renaître après leur carrière sportive, en construisant un avenir solide et épanouissant.
+  </p>
 
         {/* Espace réduit entre le bouton et la section des images */}
-        <div className="flex justify-center "> {/* Utilisation de mb-2 pour un espace minimal */}
-          <button className="bg-orange-400 hover:bg-orange-500 text-white p- font-bold   rounded">
+        <div className="flex justify-center "> {/* Utilisation de mb-2 pour un espace minimal*/}
+          <button className="bg-orange-400 hover:bg-orange-500 text-white p-2 font-bold   rounded">
             Adhérer
           </button>
         </div>
