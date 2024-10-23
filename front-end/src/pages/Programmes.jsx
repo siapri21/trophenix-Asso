@@ -143,8 +143,8 @@ const Programmes = () => {
       </div>
 
 
-
-      <div className="bg-gray-100 py-12 mt-10 w-full ">
+{/* soutenir l'asso avec nos programmes */}
+      <div className=" py-12 mt-10 w-full h-full ">
         {/* Titre centralisé */}
         <div className="text-center mb-12 ">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
@@ -158,7 +158,7 @@ const Programmes = () => {
         {/* Grid avec layout responsive */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-full px-4">
           {/* Entreprises */}
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center">
             <BiBarChartAlt2 className="text-green-500 mx-auto mb-4" size={50} />
             <h3 className="text-xl font-semibold mb-4">Entreprises</h3>
             <p className="text-gray-600">
@@ -167,7 +167,7 @@ const Programmes = () => {
           </div>
 
           {/* Organisations */}
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center">
             <BiGlobe className="text-green-500 mx-auto mb-4" size={50} />
             <h3 className="text-xl font-semibold mb-4">Organisations</h3>
             <p className="text-gray-600">
@@ -176,7 +176,7 @@ const Programmes = () => {
           </div>
 
           {/* Particuliers */}
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center">
             <BiTimeFive className="text-green-500 mx-auto mb-4" size={50} />
             <h3 className="text-xl font-semibold mb-4">Particuliers</h3>
             <p className="text-gray-600">

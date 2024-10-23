@@ -8,8 +8,9 @@ const Footer = () => {
         <div className="flex justify-center sm:justify-start mb-6">
           <div className="flex items-center space-x-2">
             <div className="text-white">
-              <p className="text-xl font-semibold">WebbyFrames</p>
-              <p className="text-sm">for Figma</p>
+           <img src="/asserts/img/logo-groupe-ss-fond.png" 
+           className='w-40'
+           alt="Logo" />
             </div>
           </div>
         </div>
@@ -35,19 +36,19 @@ const Footer = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex space-x-6 text-gray-700">
-            <a href="#">Eleven</a>
-            <a href="#">Twelve</a>
-            <a href="#">Thirteen</a>
-            <a href="#">Fourteen</a>
-            <a href="#">Fifteen</a>
-            <a href="#">Sixteen</a>
+          <div className="flex space-x-2 text-gray-700 text-center">
+            <a href="#">à-propos</a>
+            <a href="#">Evénement</a>
+            <a href="#">Programme</a>
+            <a href="#">Actus</a>
+            <a href="#">Contact</a>
+            <a href="#">Faq</a>
           </div>
         </div>
 
         {/* Copyright */}
         <p className="text-sm text-gray-600">
-          CompanyName @ 202X. All rights reserved.
+          TrophenixAsso @ 2024. All rights reserved.
         </p>
       </div>
     </footer>

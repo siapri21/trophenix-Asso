@@ -21,7 +21,7 @@ const Marquee = () => {
                     key={`${i}-${j}`} // Clé unique pour chaque logo
                     src={logos[j].src}
                     alt={logos[j].alt}
-                    className="h-20 mx-4"
+                    className="h-10 mx-4"
                 />
             );
         }
