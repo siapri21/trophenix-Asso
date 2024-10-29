@@ -4,7 +4,7 @@ const Contact = require('../models/Contact');
 const sendEmail = require('../utils/emailServices');
 
 // Route POST pour recevoir et sauvegarder les données du formulaire de contact
-router.post('/users', async (req, res) => {
+router.post('/send-email', async (req, res) => {
   try {
     const { name, email, company, phone, subject, message } = req.body;
 
@@ -22,7 +22,7 @@ router.post('/users', async (req, res) => {
     await newMessage.save();
 
     // Envoyez l'email à l'association
-    await sendEmail({name,email,company,phone,subject,message})
+    await sendEmail(formData)
 
 
     res.status(201).json({ message: 'Message envoyé avec succès !' });

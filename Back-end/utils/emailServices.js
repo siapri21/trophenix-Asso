@@ -14,7 +14,7 @@ const sendEmail = async (formData) => {
   try {
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'trophenix@gmail.com', // Email de réception (association)
+      to: 'ouattara10siap@gmail.com', // Email de réception (association)
       subject: `Nouveau message de ${formData.name}`,
       text: `Nom : ${formData.name}\nEmail : ${formData.email}\nEntreprise : ${formData.company}\nTéléphone : ${formData.phone}\nObjet : ${formData.subject}\nMessage : ${formData.message}`,
     };

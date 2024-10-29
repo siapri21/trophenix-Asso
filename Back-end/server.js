@@ -26,7 +26,7 @@ mongoose.connect(mongoose_Url,{
   .catch((error) => console.error('Erreur de connexion à MongoDB :', error));
 
 // Routes API
-app.use('/api', contactRoutes); // Utiliser la route de contact
+app.user('/api', contactRoutes); // Utiliser la route de contact
 
 // Démarrer le serveur
 const PORT = process.env.PORT || 7000;
