@@ -7,7 +7,6 @@ import MissionSection from "../components/MissionSection";
 import Events  from "../components/Events";
 import ProgrammeSection from "../components/ProgrammeSection";
 import Agir from "../components/Agir";
-import Contact from '../components/Contact';
 import SectionDon from "../components/SectionDon";
 import Actus from "../components/Actus";
 
@@ -24,7 +23,7 @@ export default function Home (){
             <SectionDon/>
             <Agir/>
             <Actus/>
-            <Contact/>
+           
 
 
         </div>

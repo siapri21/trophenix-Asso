@@ -10,7 +10,8 @@ import Programmes from './pages/Programmes.jsx';
 import Parrains from './pages/Parrains.jsx';
 import Mecenat from './pages/Mecenat.jsx';
 import Actus from './pages/Actus.jsx';
-import Contact from './pages/Contact';
+import Contact from './pages/contact.jsx';
+import ContactSection from './components/ContactFooter.jsx';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/actualite" element={<Actus/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
+      <ContactSection/>
       <Footer/>
 
 

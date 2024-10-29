@@ -33,13 +33,19 @@ const About = () => {
         <div className="md:w-1/2 w-full md:ml-6 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold text-center mt-4">Notre Histoire</h2>
           <p className="text-lg text-gray-600 leading-relaxed text-center mt-4">
-            Trophenix est une association dédiée à la reconversion des sportifs professionnels, qui vise à accompagner les athlètes dans la transition de leur carrière sportive vers une nouvelle vie professionnelle. Nous comprenons que la fin d'une carrière dans le sport de haut niveau peut être un moment de grande incertitude, et notre mission est de fournir le soutien nécessaire pour assurer une transition réussie vers de nouvelles opportunités."
+            Trophenix est une association dédiée à la reconversion des sportifs professionnels, 
+            qui vise à accompagner les athlètes dans la transition de leur carrière sportive vers
+            une nouvelle vie professionnelle. Nous comprenons que la fin d'une carrière dans le
+             sport de haut niveau peut être un moment de grande incertitude, et notre mission est
+              de fournir le soutien nécessaire pour assurer une transition réussie vers de nouvelles 
+              opportunités."
           </p>
         </div>
       </div>
 
       {/* Third Section: Grey Square and Blue Rectangle with Text */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-20" style={{ marginLeft: '15%', marginRight: '15%' }}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-20"
+       style={{ marginLeft: '15%', marginRight: '15%' }}>
         <div className="text-gray-700 text-center md:text-left flex-1">
           <p>
             There are many variations of passages of Lorem Ipsum available, but
@@ -50,7 +56,8 @@ const About = () => {
 
         <div className="relative flex-1 flex justify-center items-center">
           <div className="bg-gray-300 w-64 h-48 rounded-md relative"></div>
-          <div className="absolute bg-blue-300 w-52 h-10 rounded-md transform -translate-x-32 translate-y-12 flex items-center justify-center">
+          <div className="absolute bg-blue-300 w-52 h-10 rounded-md transform 
+          -translate-x-32 translate-y-12 flex items-center justify-center">
             <span className="text-white font-bold">Your Word</span>
           </div>
         </div>
@@ -58,11 +65,13 @@ const About = () => {
 
 
        {/* Third Section: Grey Square and Blue Rectangle with Text */}
-       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-20" style={{ marginLeft: '15%', marginRight: '15%' }}>
+       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-20"
+        style={{ marginLeft: '15%', marginRight: '15%' }}>
        
         <div className="relative flex-1 flex justify-center items-center">
           <div className="bg-gray-300 w-64 h-48 rounded-md relative"></div>
-          <div className="absolute bg-blue-300 w-52 h-10 rounded-md transform -translate-x-32 translate-y-12 flex items-center justify-center">
+          <div className="absolute bg-blue-300 w-52 h-10 rounded-md transform 
+          -translate-x-32 translate-y-12 flex items-center justify-center">
             <span className="text-white font-bold">Your Word</span>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import React from 'react';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-orange-300 py-10">
+    <footer className="bg-orange-300 py-8 px-14">
       <div className="container mx-auto text-center sm:text-left">
         {/* Logo Section */}
         <div className="flex justify-center sm:justify-start mb-6">
@@ -18,21 +19,14 @@ const Footer = () => {
         {/* Social Media Links */}
         <div className="flex justify-center sm:justify-between items-center space-x-4 mb-4">
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-700">
-              <i className="fab fa-youtube"></i>
-            </a>
-            <a href="#" className="text-gray-700">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" className="text-gray-700">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="text-gray-700">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" className="text-gray-700">
-              <i className="fab fa-linkedin"></i>
-            </a>
+            {/* Icône Instagram */}
+      <a href="https://www.instagram.com/trophenix_asso/profilecard" target="_blank" rel="noopener noreferrer">
+        <FaInstagram size={30} style={{ margin: '0 10px', color: '#E4405F' }} />
+      </a>
+           {/* Icône LinkedIn */}
+      <a href="https://www.linkedin.com/company/trophenix-asso/" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin size={30} style={{ margin: '0 10px', color: '#0077B5' }} />
+      </a>
           </div>
 
           {/* Navigation */}

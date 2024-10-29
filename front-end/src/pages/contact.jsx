@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Marquee from '../components/Partenaires';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,8 +34,8 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        alert('Message envoyé avec succès !');
-        setFormData({ // Réinitialiser les données du formulaire
+        toast.success('Message envoyé avec succès !');
+        setFormData({ // Reset form data
           name: '',
           email: '',
           company: '',
@@ -41,42 +43,42 @@ const Contact = () => {
           subject: '',
           message: '',
         });
+
       } else {
-        alert('Erreur lors de l\'envoi du message.');
+        toast.error("Erreur lors de l'envoi du message.");
       }
+      
     } catch (error) {
-      console.error('Erreur lors de l\'envoi du formulaire', error);
-      alert('Erreur lors de l\'envoi du message.');
+      console.error("Erreur lors de l'envoi du formulaire", error);
+      toast.error("Erreur lors de l'envoi du message.");
     }
   };
 
   return (
     <div className="container mx-auto px-4 py-8 mt-20">
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
       <div className="flex flex-wrap -mx-4 items-center px-9">
-            {/* Équipe et explication à droite */}
-            <div className="w-full md:w-1/2 px-4">
-          {/* <h2 className="text-2xl font-bold mb-4">Notre équipe</h2> */}
+        {/* Left: Team and Explanation */}
+        <div className="w-full md:w-1/2 px-4">
           <div className="flex justify-center space-x-4 mb-6">
             <img src="/asserts/img/ivan.png" alt="John Doe" className="w-20 h-20 rounded-full" />
             <img src="/asserts/img/jean.png" alt="Jane Smith" className="w-20 h-20 rounded-full" />
             <img src="/asserts/img/merrine.png" alt="Mike Johnson" className="w-20 h-20 rounded-full" />
           </div>
-          <p className="text-gray-600 text-center font-bold  text-4xl mb-4">
+          <p className="text-gray-600 text-center font-bold text-4xl mb-4">
              Nous serions ravis de pouvoir échanger avec vous !
           </p>
-
-          {/* <h3 className="text-xl font-semibold mb-2">Notre engagement</h3> */}
           <ul className="space-y-2 text-gray-600 mt-10 ">
             <li>⭐ <span className='font-bold'>Nous écoutons vos enjeux</span> : Pour vous renseigner et vous épauler sur vos projets de reconversion sportive avec enthousiasme et détermination.</li>
             <li>⭐ <span className='font-bold'>Nous vous présentons notre association</span> : Pour vous présenter nos solutions et vous aider à définir votre démarche de reconversion.</li>
-            <li>⭐<span className='font-bold'> Nous vous accompagnons étape par étape</span> : Pour réussir ensemble votre transition vers une nouvelle carrière après le sport professionnel !</li>
+            <li>⭐ <span className='font-bold'>Nous vous accompagnons étape par étape</span> : Pour réussir ensemble votre transition vers une nouvelle carrière après le sport professionnel !</li>
           </ul>
           <div className="flex justify-center">
             <img src="/asserts/img/hand-drawn-phoenix-silhouette_23-2150429160.jpg" alt="Phénix" className="w-36 h-40 mt-20" />
           </div>
         </div>
 
-        {/* Formulaire à gauche */}
+        {/* Right: Contact Form */}
         <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0 mt-5">
           <div className="bg-[#50B4D9] p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4">Contactez-nous</h2>
@@ -153,7 +155,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Logos des partenaires en bas */}
+      {/* Partner Logos */}
       <div className="mt-12">
         <h1 className="text-3xl font-bold mb-4 text-center">
           Ils ont fait le pas, et ne le regrettent pas !
