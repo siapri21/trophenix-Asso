@@ -1,18 +1,19 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-// Importer la connexion à la base de données et les routes
 const db = require('./config/db');
-const mecenatRoutes = require('./routes/mecenatRoutes');
+const mecenatRoutes = require('./routes/mecenatRouter');
+const authRoutes = require('./routes/authRoute'); // Nouvelle route d'authentification
 
-// Middlewares
+app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use('/api/mecenat', mecenatRoutes);
+app.use('/api/login', authRoutes); // Route pour la connexion
 
-// Lancer le serveur
 app.listen(PORT, () => {
-    console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
+  console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
 });

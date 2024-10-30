@@ -1,38 +1,69 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react'; // Importation des bibliothèques nécessaires
+import axios from 'axios'; // Importation de la bibliothèque axios pour les requêtes HTTP
+
 
 const Mecenat = () => {
+  // État pour déterminer si l'utilisateur est en mode inscription ou connexion
   const [isSignUp, setIsSignUp] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+
+  // État pour stocker les données du formulaire d'inscription
   const [formData, setFormData] = useState({
     gender: '',
     firstName: '',
     lastName: '',
-    companyName: '', // Ajout du champ Nom de l'entreprise
+    companyName: '', // Champ pour le nom de l'entreprise
     email: '',
+    phoneNumber: '', // Champ pour le numéro de téléphone
     password: '',
     confirmPassword: '',
     alerts: false,
     partnerNews: false,
   });
 
+  // État pour stocker les données de connexion
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
   });
+  
+    // Fonction pour gérer la déconnexion de l'utilisateur
+    const handleLogout = () => {
+      setIsLoggedIn(false); // Mettre à jour l'état de connexion
+      setUser(null); // Réinitialiser les informations de l'utilisateur
+      // Gérer d'autres actions de déconnexion, comme le nettoyage des tokens, etc.
+    };
 
+    // Fonction pour gérer le succès de la connexion
+  const handleLoginSuccess = (userData) => {
+    setIsLoggedIn(true); // Mettre à jour l'état de connexion
+    setUser(userData); // Stocker les informations de l'utilisateur
+  };
+
+  // État pour gérer les erreurs du formulaire
   const [errors, setErrors] = useState({});
+
+  // État pour afficher les messages de succès
   const [successMessage, setSuccessMessage] = useState('');
 
+  // Fonction de validation du formulaire
   const validateForm = () => {
     const newErrors = {};
     if (isSignUp) {
+      // Validation pour le formulaire d'inscription
       if (!formData.firstName) newErrors.firstName = 'Le prénom est requis';
       if (!formData.lastName) newErrors.lastName = 'Le nom est requis';
-      if (!formData.companyName) newErrors.companyName = "Le nom de l'entreprise est requis"; // Validation du champ Nom de l'entreprise
+      if (!formData.companyName) newErrors.companyName = "Le nom de l'entreprise est requis"; // Validation du nom de l'entreprise
       if (!formData.email) {
         newErrors.email = 'L’email est requis';
       } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
         newErrors.email = 'Email invalide';
+      }
+      if (!formData.phoneNumber) {
+        newErrors.phoneNumber = 'Le numéro de téléphone est requis';
+      } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
+        newErrors.phoneNumber = 'Numéro de téléphone invalide (doit contenir 10 chiffres)';
       }
       if (!formData.password) {
         newErrors.password = 'Le mot de passe est requis';
@@ -43,13 +74,15 @@ const Mecenat = () => {
         newErrors.confirmPassword = 'Les mots de passe ne correspondent pas';
       }
     } else {
+      // Validation pour le formulaire de connexion
       if (!loginData.email) newErrors.email = 'L’email est requis';
       if (!loginData.password) newErrors.password = 'Le mot de passe est requis';
     }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(newErrors); // Mettre à jour les erreurs
+    return Object.keys(newErrors).length === 0; // Retourne true si aucune erreur
   };
 
+  // Fonction de gestion des changements dans les champs de formulaire
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (isSignUp) {
@@ -65,20 +98,42 @@ const Mecenat = () => {
     }
   };
 
+  // Fonction de soumission du formulaire
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validateForm()) {
+    e.preventDefault(); // Empêche le rechargement de la page
+    if (validateForm()) { // Valider le formulaire
       try {
+        // Envoie la requête POST selon le mode (inscription ou connexion)
         const response = isSignUp
-          ? await axios.post('http://localhost:8000/api/signup', formData)
-          : await axios.post('http://localhost:8000/api/login', loginData);
+          ? await axios.post('http://localhost:3000/api/mecenat', formData) // Correction de l'URL pour l'inscription
+          : await axios.post('http://localhost:3000/api/login', loginData);
+        
         setSuccessMessage(isSignUp ? 'Inscription réussie !' : 'Connexion réussie !');
-        console.log(response.data);
+        console.log(response.data); // Affiche la réponse du serveur
+
+        if (isSignUp) {
+          // Si l'inscription réussit, réinitialiser le formulaire et basculer vers la connexion
+          setFormData({
+            gender: '',
+            firstName: '',
+            lastName: '',
+            companyName: '',
+            email: '',
+            phoneNumber: '', // Réinitialisation du numéro de téléphone
+            password: '',
+            confirmPassword: '',
+            alerts: false,
+            partnerNews: false,
+          });
+          setIsSignUp(false); // Basculer vers le mode connexion
+        }
       } catch (error) {
         console.error('Erreur lors de la soumission :', error);
       }
     }
   };
+
+   
 
   return (
     <section className="flex justify-center items-center bg-gray-100 mt-20">
@@ -88,9 +143,9 @@ const Mecenat = () => {
       >
         <h2 className="text-2xl font-bold mb-6">{isSignUp ? 'Inscription' : 'Connexion'}</h2>
 
-        {successMessage && <p className="text-green-500">{successMessage}</p>}
+        {successMessage && <p className="text-green-500">{successMessage}</p>} {/* Affichage du message de succès */}
 
-        {isSignUp ? (
+        {isSignUp ? ( // Rendu conditionnel pour le formulaire d'inscription
           <>
             <div className="mb-4">
               <label className="block text-gray-700">Civilité</label>
@@ -128,7 +183,7 @@ const Mecenat = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
-              {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
+              {errors.firstName && <p className="text-red-500">{errors.firstName}</p>} {/* Affichage des erreurs */}
             </div>
 
             <div className="mb-4">
@@ -156,15 +211,28 @@ const Mecenat = () => {
               />
               {errors.companyName && <p className="text-red-500">{errors.companyName}</p>}
             </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700">Numéro de téléphone</label>
+              <input
+                type="tel"
+                name="phoneNumber"
+                placeholder="ex. 0123456789"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              />
+              {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber}</p>} {/* Affichage des erreurs */}
+            </div>
           </>
-        ) : null}
+        ) : null} {/* Fin du rendu d'inscription */}
 
         <div className="mb-4">
           <label className="block text-gray-700">E-mail</label>
           <input
             type="email"
             name="email"
-            placeholder="email@mail.fr"
+            placeholder="ex. email@example.com"
             value={isSignUp ? formData.email : loginData.email}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -177,7 +245,7 @@ const Mecenat = () => {
           <input
             type="password"
             name="password"
-            placeholder="Votre mot de passe"
+            placeholder="Mot de passe"
             value={isSignUp ? formData.password : loginData.password}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -185,7 +253,7 @@ const Mecenat = () => {
           {errors.password && <p className="text-red-500">{errors.password}</p>}
         </div>
 
-        {isSignUp && (
+        {isSignUp && ( // Champ de confirmation du mot de passe uniquement pour l'inscription
           <div className="mb-4">
             <label className="block text-gray-700">Confirmation du mot de passe</label>
             <input
@@ -232,7 +300,7 @@ const Mecenat = () => {
         <p className="text-center mt-4">
           {isSignUp ? 'Déjà inscrit ? ' : "Pas de compte ? "}
           <span
-            onClick={() => setIsSignUp(!isSignUp)}
+            onClick={() => setIsSignUp(!isSignUp)} // Permet de basculer entre l'inscription et la connexion
             className="text-red-500 cursor-pointer"
           >
             {isSignUp ? 'Connectez-vous' : 'Inscrivez-vous'}
@@ -243,4 +311,4 @@ const Mecenat = () => {
   );
 };
 
-export default Mecenat;
+export default Mecenat; // Exportation du composant
