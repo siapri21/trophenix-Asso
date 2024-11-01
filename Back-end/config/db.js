@@ -1,20 +1,11 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
-// Créer la connexion MySQL
-const db = mysql.createConnection({
+// Créer un pool de connexions
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '', // Mot de passe MySQL pour WampServer (laisser vide si aucun mot de passe)
+    password: '', // Utilisez le mot de passe correct si nécessaire
     database: 'mecenat'
 });
 
-db.connect((err) => {
-    if (err) {
-        console.error('erreur de connexion à la bdd:', err);
-    }else{
-        console.log("Connexion à la bdd MySQL réussie !");
-
-    }
-});
-
-module.exports = db;
+module.exports = pool; // Exporter le pool

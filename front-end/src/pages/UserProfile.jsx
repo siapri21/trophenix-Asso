@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const UserProfile = ({ user, onLogout }) => {
   // État pour stocker les informations de profil
   const [profileData, setProfileData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
   });
   const [editing, setEditing] = useState(false);
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
 
   // Charger les données de profil initiales
   useEffect(() => {
@@ -28,10 +28,11 @@ const UserProfile = ({ user, onLogout }) => {
   // Fonction de validation des données de profil
   const validateProfile = () => {
     const newErrors = {};
-    if (!profileData.firstName) newErrors.firstName = 'Le prénom est requis';
-    if (!profileData.lastName) newErrors.lastName = 'Le nom est requis';
-    if (!profileData.email) newErrors.email = 'L’email est requis';
-    if (!profileData.phoneNumber) newErrors.phoneNumber = 'Le numéro de téléphone est requis';
+    if (!profileData.firstName) newErrors.firstName = "Le prénom est requis";
+    if (!profileData.lastName) newErrors.lastName = "Le nom est requis";
+    if (!profileData.email) newErrors.email = "L’email est requis";
+    if (!profileData.phoneNumber)
+      newErrors.phoneNumber = "Le numéro de téléphone est requis";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -47,11 +48,14 @@ const UserProfile = ({ user, onLogout }) => {
     e.preventDefault();
     if (validateProfile()) {
       try {
-        const response = await axios.put(`http://localhost:3000/api/profile/${user.id}`, profileData);
-        setSuccessMessage('Profil mis à jour avec succès !');
+        const response = await axios.put(
+          `http://localhost:3000/api/profile/${user.id}`,
+          profileData
+        );
+        setSuccessMessage("Profil mis à jour avec succès !");
         setEditing(false);
       } catch (error) {
-        console.error('Erreur lors de la mise à jour du profil :', error);
+        console.error("Erreur lors de la mise à jour du profil :", error);
       }
     }
   };
@@ -62,7 +66,7 @@ const UserProfile = ({ user, onLogout }) => {
       await axios.delete(`http://localhost:3000/api/profile/${user.id}`);
       onLogout(); // Déconnecter l'utilisateur après suppression
     } catch (error) {
-      console.error('Erreur lors de la suppression du compte :', error);
+      console.error("Erreur lors de la suppression du compte :", error);
     }
   };
 
@@ -83,7 +87,9 @@ const UserProfile = ({ user, onLogout }) => {
               disabled={!editing}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
+            {errors.firstName && (
+              <p className="text-red-500">{errors.firstName}</p>
+            )}
           </div>
 
           <div className="mb-4">
@@ -96,7 +102,9 @@ const UserProfile = ({ user, onLogout }) => {
               disabled={!editing}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            {errors.lastName && <p className="text-red-500">{errors.lastName}</p>}
+            {errors.lastName && (
+              <p className="text-red-500">{errors.lastName}</p>
+            )}
           </div>
 
           <div className="mb-4">
@@ -122,7 +130,9 @@ const UserProfile = ({ user, onLogout }) => {
               disabled={!editing}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber}</p>}
+            {errors.phoneNumber && (
+              <p className="text-red-500">{errors.phoneNumber}</p>
+            )}
           </div>
 
           {editing ? (

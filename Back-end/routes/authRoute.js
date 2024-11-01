@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../Controllers/authController'); // Adapter le chemin si nécessaire
 
-// Route pour la connexion
-router.post('/login', authController.login);
+// Importation du contrôleur d'authentification
+const authController = require('../Controllers/authController');
+
+// Route POST pour la connexion
+// Lorsqu'un utilisateur soumet ses informations de connexion, cette route est appelée
+// La fonction `login` du contrôleur est utilisée pour gérer la logique de connexion
+router.post('/', authController.login);
 
 module.exports = router;
