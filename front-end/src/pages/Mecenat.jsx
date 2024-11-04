@@ -1,7 +1,10 @@
 import React, { useState } from "react"; // Importation des bibliothèques nécessaires
 import axios from "axios"; // Importation de la bibliothèque axios pour les requêtes HTTP
+import { useNavigate } from "react-router-dom";
+import UserProfile from "./UserProfile";
 
 const Mecenat = () => {
+  const navigate = useNavigate() 
   // État pour déterminer si l'utilisateur est en mode inscription ou connexion
   const [isSignUp, setIsSignUp] = useState(true);
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -26,18 +29,21 @@ const Mecenat = () => {
     email: "",
     password: "",
   });
+  
 
   // Fonction pour gérer la déconnexion de l'utilisateur
   const handleLogout = () => {
-    setIsLoggedIn(false); // Mettre à jour l'état de connexion
+    setLoggedIn(false); // Mettre à jour l'état de connexion
     setUser(null); // Réinitialiser les informations de l'utilisateur
     // Gérer d'autres actions de déconnexion, comme le nettoyage des tokens, etc.
   };
 
   // Fonction pour gérer le succès de la connexion
   const handleLoginSuccess = (userData) => {
-    setIsLoggedIn(true); // Mettre à jour l'état de connexion
+    setLoggedIn(true); // Mettre à jour l'état de connexion
     setUser(userData); // Stocker les informations de l'utilisateur
+    console.log("redirige vers la page profil");
+    navigate("/profile");  // redirerction vers la page de profil
   };
 
   // État pour gérer les erreurs du formulaire
@@ -46,7 +52,7 @@ const Mecenat = () => {
   // État pour afficher les messages de succès
   const [successMessage, setSuccessMessage] = useState("");
 
-  // Fonction de validation du formulaire
+  // Fonction de validation du formulaireF
   const validateForm = () => {
     const newErrors = {};
     if (isSignUp) {
@@ -96,7 +102,9 @@ const Mecenat = () => {
       setFormData({
         ...formData,
         [name]: type === "checkbox" ? checked : value,
+        ...(name === "profilePicture" && { profilePicture: files[0] }),
       });
+
     } else {
       setLoginData({
         ...loginData,
@@ -105,46 +113,57 @@ const Mecenat = () => {
     }
   };
 
-  // Fonction de soumission du formulaire
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
-    if (validateForm()) {
-      // Valider le formulaire
-      try {
-        // Envoie la requête POST selon le mode (inscription ou connexion)
-        const response = isSignUp
-          ? await axios.post("http://localhost:3000/api/register", formData) // Correction de l'URL pour l'inscription
-          : await axios.post("http://localhost:3000/api/login", loginData);
+// Fonction de soumission du formulaire
+const handleSubmit = async (e) => {
+  e.preventDefault(); // Empêche le rechargement de la page
+  if (validateForm()) { // Valider le formulaire
+    try {
+      const data = new FormData();
+      Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key]);
+      });
+      
+      // Envoie la requête POST selon le mode (inscription ou connexion)
+      const response = isSignUp
+        ? await axios.post("http://localhost:3000/api/register", formData) 
+        : await axios.post("http://localhost:3000/api/login", loginData);
 
-        setSuccessMessage(
-          isSignUp ? "Inscription réussie !" : "Connexion réussie !"
-        );
-        console.log(response.data); // Affiche la réponse du serveur
+      setSuccessMessage(
+        isSignUp ? "Inscription réussie !" : "Connexion réussie !"
+      );
 
-        if (isSignUp) {
-          // Si l'inscription réussit, réinitialiser le formulaire et basculer vers la connexion
-          setFormData({
-            gender: "",
-            firstName: "",
-            lastName: "",
-            companyName: "",
-            email: "",
-            phoneNumber: "", // Réinitialisation du numéro de téléphone
-            password: "",
-            confirmPassword: "",
-            alerts: false,
-            partnerNews: false,
-          });
-          setIsSignUp(false); // Basculer vers le mode connexion
-        }
-      } catch (error) {
-        if (error.response) {
-          console.error("Erreur lors de la soumission :", error.response.data);
-        } else {
-          console.error("erreur de la soumission", error);
-        }
+      console.log(response.data); // Affiche la réponse du serveur
+
+      if (isSignUp) {
+        // Si l'inscription réussit
+        setFormData({
+          gender: "",
+          firstName: "",
+          lastName: "",
+          companyName: "",
+          email: "",
+          phoneNumber: "",
+          password: "",
+          confirmPassword: "",
+          alerts: false,
+          partnerNews: false,
+        });
+        setIsSignUp(false); // Basculer vers le mode connexion
+      } else {
+        // Si la connexion réussit
+        handleLoginSuccess(response.data.user); // Appel de la fonction de succès de connexion
+      }
+
+    } catch (error) {
+      if (error.response) {
+        console.error("Erreur lors de la soumission :", error.response.data);
+      } else {
+        console.error("Erreur de la soumission", error);
       }
     }
+  }
+
+
   };
 
   return (
@@ -328,6 +347,15 @@ const Mecenat = () => {
           </span>
         </p>
       </form>
+       {/* Vérification si les informations de l'utilisateur sont disponibles */}
+       {user ? (
+        // Affichage du composant UserProfile si l'utilisateur est connecté
+        <UserProfile user={user} onLogout={handleLogout} />
+      ) : (
+        // Message d'invite à la connexion si l'utilisateur n'est pas connecté
+        <p>Veuillez vous connecter pour voir votre profil.</p>
+      )}
+      
     </section>
   );
 };
