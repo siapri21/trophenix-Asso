@@ -13,6 +13,8 @@ import Actus from './pages/Actus.jsx';
 import Contact from './pages/contact.jsx';
 import ContactSection from './components/ContactFooter.jsx';
 import UserProfile from './pages/UserProfile.jsx';
+import OffersList from './pages/ListOffer.jsx';
+
 
 
 
@@ -32,6 +34,7 @@ function App() {
         <Route path="/actualite" element={<Actus/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/profile" element={<UserProfile/>}/>
+        <Route path="/offers" element={<OffersList/>}/>
       </Routes>
       <ContactSection/>
       <Footer/>

@@ -28,7 +28,8 @@ const Marquee = () => {
     }
 
     return (
-        <div className="overflow-hidden bg-white p-10">
+        <div className="overflow-hidden bg-white p-10"
+        style={{width: "100vw"}}>
             <div className="flex animate-marquee whitespace-nowrap">
                 {/* Affichage des logos */}
                 {logoElements}

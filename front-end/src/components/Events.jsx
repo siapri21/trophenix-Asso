@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const EventSection = () => {
   return (
-    <section className='bg-gray-100'>
+    <section className='bg-gray-100'  style={{width: "100vw"}}>
       <div className="flex flex-col md:flex-row items-center justify-between md:space-x-8 p-8" style={{ marginLeft: '10%', marginRight: '10%' }}>
         {/* Left Image Slider Section */}
         <div className="w-full md:w-3/5">

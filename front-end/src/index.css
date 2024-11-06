@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
 @keyframes marquee {
     0% { transform: translateX(100%); } /* Commence à droite */
     100% { transform: translateX(-100%); } /* Se termine à gauche */

@@ -7,7 +7,7 @@ const Mecenat = () => {
   const navigate = useNavigate() 
   // État pour déterminer si l'utilisateur est en mode inscription ou connexion
   const [isSignUp, setIsSignUp] = useState(true);
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [LoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
   // État pour stocker les données du formulaire d'inscription
@@ -36,6 +36,7 @@ const Mecenat = () => {
     setLoggedIn(false); // Mettre à jour l'état de connexion
     setUser(null); // Réinitialiser les informations de l'utilisateur
     // Gérer d'autres actions de déconnexion, comme le nettoyage des tokens, etc.
+    navigate("/home");
   };
 
   // Fonction pour gérer le succès de la connexion
@@ -162,6 +163,7 @@ const handleSubmit = async (e) => {
       }
     }
   }
+
 
 
   };
@@ -347,12 +349,10 @@ const handleSubmit = async (e) => {
           </span>
         </p>
       </form>
-       {/* Vérification si les informations de l'utilisateur sont disponibles */}
-       {user ? (
-        // Affichage du composant UserProfile si l'utilisateur est connecté
-        <UserProfile user={user} onLogout={handleLogout} />
+        {/* Composant UserProfile ou message d'invite */}
+        {user ? (
+        <UserProfile user={user}  LoggedIn={handleLogout} />
       ) : (
-        // Message d'invite à la connexion si l'utilisateur n'est pas connecté
         <p>Veuillez vous connecter pour voir votre profil.</p>
       )}
       

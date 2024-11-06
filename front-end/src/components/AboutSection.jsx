@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const About = () => (
-  <section className="bg-purple-50 py-16 px-4">
+  <section className="bg-purple-50 py-16 px-4"   style={{width: "100vw"}}>
     <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
       {/* Images */}
       <div className="relative w-full lg:w-1/2 aspect-[4/3] order-2 lg:order-1">

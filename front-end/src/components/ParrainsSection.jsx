@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const ParrainsSection = () => {
   return (
-    <section>
+    <section   style={{width: "100vw"}}>
       <div className="flex flex-col md:flex-row items-center justify-between" style={{ marginLeft: '10%', marginRight: '10%' }}>
         
       <div className="w-full md:w-2/5 mt-8 md:mt-0 text-center md:text-left">

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MissionSection = () => (
-  <div className="py-12 px-4 sm:px-6 lg:px-8 mt-10">
+  <div className="py-12 px-4 sm:px-6 lg:px-8 mt-10"  style={{width: "100vw"}}>
     <div style={{ marginLeft: '10%', marginRight: '10%' }}>
       {/* Title Section */}
       <div className="text-center mb-10">

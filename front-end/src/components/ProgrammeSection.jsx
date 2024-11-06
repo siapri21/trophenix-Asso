@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProgrammeSection = () => {
   return (
-    <div className="relative py-16 px-4 bg-gray-100">
+    <div className="relative py-16 px-4 bg-gray-100"  style={{width: "100vw"}}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-[#2f4858]">Nos Programmes</h2>
