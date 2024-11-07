@@ -10,7 +10,7 @@ const EventSection = () => {
           {/* Main image */}
           <div className="rounded-lg overflow-hidden">
             <img 
-              src="/asserts/img/36.png" 
+              src="/asserts/img/Dossier_Rencontre_Art-SporTech.png" 
               alt="Main" 
               className="w-full h-auto object-cover"
             />
@@ -18,12 +18,12 @@ const EventSection = () => {
           {/* Small images under the main image */}
           <div className="flex mt-4 space-x-4">
             <img 
-              src="/asserts/img/36.png" 
+              src="/asserts/img/Bannière Eventbrite.png" 
               alt="Small 1" 
               className="w-1/2 h-auto object-cover rounded-lg"
             />
             <img 
-              src="/asserts/img/36.png" 
+              src="/asserts/img/Bannière Eventbrite.png" 
               alt="Small 2" 
               className="w-1/2 h-auto object-cover rounded-lg"
             />

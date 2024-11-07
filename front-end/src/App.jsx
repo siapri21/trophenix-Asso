@@ -17,8 +17,6 @@ import OffersList from './pages/ListOffer.jsx';
 
 
 
-
-
 function App() {
   return (
     <Router>
@@ -38,9 +36,6 @@ function App() {
       </Routes>
       <ContactSection/>
       <Footer/>
-
-
-      
       </Router>
   );
 }

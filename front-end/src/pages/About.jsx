@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Slide, Zoom } from '@mui/material';
+import { Grow, Slide, Zoom } from '@mui/material';
 import { ReactTyped } from 'react-typed';
 import { Fade } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
@@ -25,18 +25,11 @@ const About = () => {
       {/* First Section: Text and Skewed Image */}
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:ml-6 text-left">
-        <div className="text-2xl italic text-[#62a6de] mt-4">
-      <ReactTyped
-        strings={[
-          "Le plus grand défi d'un athlète n'est pas de remporter des médailles, mais de trouver un nouveau chemin après la compétition."
-        ]}
-        typeSpeed={50}
-        backSpeed={50}
-        backDelay={1000}
-        startDelay={500}
-        loop={false}
-      />
-    </div>
+
+        <div className="text-2xl italic text-[#62a6de] mt-4 fade-in">
+        "Le défi d’un athlète : se réinventer après la compétition."
+</div>
+
 
         </div>
         <div className="relative w-full md:w-1/2 mb-6 md:mb-0">
@@ -77,7 +70,7 @@ const About = () => {
    <div className="max-w-7xl mx-auto mt-20 space-y-16" style={{ marginLeft: '10%', marginRight: '10%' }}>
       
       {/* Première section */}
-      <Slide direction="left" in={checked} timeout={800}>
+      <Slide direction="left" in={checked} timeout={3500}>
         <div className="flex flex-col md:flex-row items-center">
           <div className="text-[#2f4858] text-center md:text-left flex-1">
             <h6 className="font-bold text-[#6a0dad] text-2xl p-4">Guider les athlètes vers une nouvelle
@@ -91,7 +84,7 @@ const About = () => {
           </div>
           
           <div className="relative flex-1 flex justify-center items-center">
-          <Zoom in={checked} timeout={1500}>
+          <Zoom in={checked} timeout={100}>
   <div className="w-64 h-48 rounded-md shadow-lg">
     {/* Image ou contenu simple pour le test */}
     <img
@@ -110,7 +103,7 @@ const About = () => {
       </Slide>
       
       {/* Deuxième section */}
-      <Slide direction="right" in={checked} timeout={800}>
+      <Slide direction="right" in={checked} timeout={3500}>
         <div className="flex flex-col md:flex-row items-center">
           <div className="relative flex-1 flex justify-center items-center">
           <Zoom in={checked} timeout={1500}>
@@ -139,7 +132,7 @@ const About = () => {
       </Slide>
 
       {/* Troisième section */}
-      <Slide direction="left" in={checked} timeout={800}>
+      <Slide direction="left" in={checked} timeout={3500}>
         <div className="flex flex-col md:flex-row items-center">
           <div className="text-[#2f4858] text-center md:text-left flex-1">
             <h6 className="font-bold text-[#e0d536] text-2xl p-4">Établir et maintenir un réseau de collaboration avec des professionnels de divers domaines.</h6>
@@ -260,9 +253,9 @@ const About = () => {
 
       <div className="flex flex-col md:flex-row items-center justify-between p-8 bg-green-100 p-12" style={{width: '100vw'}}>
       
-      <div className="relative flex justify-center md:w-1/2 p-4" ref={ref}>
-        <Fade in={inView} timeout={1000}>
-        <div className="relative flex justify-center p-8 ">
+      <div className="relative flex justify-center md:w-1/2 p-4" ref={ref} >
+        <Grow in={inView} timeout={1000}>
+        <div className="relative flex justify-center p-8 " >
       <div ref={ref} className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[600px]">
         
       
@@ -296,11 +289,11 @@ const About = () => {
         </div>
       </div>
     </div>
-        </Fade>
+        </Grow>
       </div>
 
       <div className="md:w-1/2 p-4">
-        <Fade in={inView} timeout={1200}>
+        <Slide in={inView} timeout={1200} direction='up' mountOnEnter unmountOnExit>
           <div className="text-gray-900">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
               Devenez des acteurs engagés de la transition <span className="text-orange-500">sportive.</span>
@@ -312,7 +305,7 @@ const About = () => {
               J'adhère
             </button>
           </div>
-        </Fade>
+        </Slide>
       </div>
       
     </div>
