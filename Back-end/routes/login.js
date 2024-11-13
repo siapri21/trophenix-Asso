@@ -17,7 +17,7 @@ router.post('/send-email', async (req, res) => {
       subject,
       message,
     });
-    
+
     // Sauvegarder dans MongoDB
     await newMessage.save();
 

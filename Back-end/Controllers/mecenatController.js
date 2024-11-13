@@ -26,7 +26,7 @@ exports.createMecenat = async (req, res) => {
       phoneNumber,
       hashedPassword, // Utiliser hashedPassword ici
     ]);
-    
+
     res.status(201).json({ message: "Demande de mécénat créée avec succès" });
   } catch (err) {
     console.error("Erreur lors de l'insertion de la demande de mécénat:", err);
@@ -39,7 +39,7 @@ exports.createMecenat = async (req, res) => {
 // Méthode pour récupérer les demandes de mécénat
 exports.getMecenats = async (req, res) => {
   console.log("variable requette query", req.query);
-  
+
   const { interestDomain, minAmount, maxAmount } = req.query;
   let sql = "SELECT * FROM demandes_mecenat WHERE 1=1";
   const filters = [];
@@ -99,18 +99,18 @@ exports.updateUserProfile = async (req, res) => {
       UPDATE demandes_mecenat
       SET firstName = ?, lastName = ?, email = ?, phone = ?, companyName = ?, companyAddress = ? , profilePicture = ?
     `;
-    const queryParams = [firstName, lastName, email, phoneNumber, companyName, companyAddress ,profilePicture];
+    const queryParams = [firstName, lastName, email, phoneNumber, companyName, companyAddress, profilePicture];
 
 
     if (mot_de_passe) {
       const hashedPassword = await bcrypt.hash(mot_de_passe, 10);
       updateQuery += ", hashed_password = ?";
       queryParams.push(hashedPassword);
-  } else {
+    } else {
       console.error("Erreur : Le mot de passe est manquant.");
       // Gérer le cas où le mot de passe est manquant (peut-être retourner une erreur ou une réponse)
-  }
-  
+    }
+
 
     updateQuery += " WHERE id = ?";
     queryParams.push(userId);
