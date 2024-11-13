@@ -38,6 +38,8 @@ exports.createMecenat = async (req, res) => {
 
 // Méthode pour récupérer les demandes de mécénat
 exports.getMecenats = async (req, res) => {
+  console.log("variable requette query", req.query);
+  
   const { interestDomain, minAmount, maxAmount } = req.query;
   let sql = "SELECT * FROM demandes_mecenat WHERE 1=1";
   const filters = [];

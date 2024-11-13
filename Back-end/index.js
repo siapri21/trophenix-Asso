@@ -19,8 +19,8 @@ app.use("/uploads", express.static("uploads"));
 app.use(session({
   secret: process.env.JWT_SECRET || 'votre_secret',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // Si vous utilisez HTTP (sinon, mettez true pour HTTPS)
+  saveUninitialized: false,
+  cookie: { secure: false } // Si tu n'as pas de HTTPS, mets secure: false
 }));
 
 // Initialisation de Passport
