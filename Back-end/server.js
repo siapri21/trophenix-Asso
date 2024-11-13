@@ -16,6 +16,8 @@ const app = express();
 app.use(cors()); // Autoriser les requêtes venant du front-end
 app.use(bodyParser.json()); // Parser les requêtes JSON
 
+
+
 // Connexion à MongoDB
 const mongoose_Url = process.env.MONGO_URL
 mongoose.connect(mongoose_Url,{
@@ -26,7 +28,7 @@ mongoose.connect(mongoose_Url,{
   .catch((error) => console.error('Erreur de connexion à MongoDB :', error));
 
 // Routes API
-app.user('/api', contactRoutes); // Utiliser la route de contact
+app.use('/api', contactRoutes); // Utiliser la route de contact
 
 // Démarrer le serveur
 const PORT = process.env.PORT || 7000;

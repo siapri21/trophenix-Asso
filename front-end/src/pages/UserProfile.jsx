@@ -63,6 +63,12 @@ const UserProfile = ({ user, onLogout }) => {
   // Soumission du formulaire
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
+    if (!user || !user.id) {
+      console.error("Erreur : l'utilisateur ou son ID est indéfini");
+      return;
+  } 
+
+
     const formData = new FormData();
     formData.append("firstName", profileData.firstName);
     formData.append("lastName", profileData.lastName);
@@ -87,13 +93,31 @@ const UserProfile = ({ user, onLogout }) => {
     }
   };
   
-
-  // Fonction pour gérer la déconnexion de l'utilisateur
-  const handleLogout = () => {
-    setLoggedIn(false); // Mettre à jour l'état de connexion
-    LoggedIn(); // Réinitialiser les informations de l'utilisateur
-    // Gérer d'autres actions de déconnexion, comme le nettoyage des tokens, etc.
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Ajoutez ici d'autres en-têtes si nécessaire, comme l'autorisation
+        },
+        // Ne pas inclure de corps de requête si ce n'est pas nécessaire
+      });
+  
+      if (response.ok) {
+        // Gérer la déconnexion réussie
+        console.log('Déconnexion réussie');
+      } else {
+        const errorData = await response.json();
+        console.error('Erreur lors de la déconnexion :', errorData);
+      }
+    } catch (error) {
+      console.error('Erreur lors de la déconnexion :', error);
+    }
   };
+  
+
+
 
   // Gestion de la suppression du compte
   const handleDeleteAccount = async () => {

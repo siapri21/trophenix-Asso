@@ -37,3 +37,28 @@ exports.login = async (req, res) => {
     res.status(500).json({ error: 'Erreur lors de la connexion' });
   }
 };
+
+
+ // Méthode pour vérifier si l'utilisateur est authentifié
+ exports.isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  return res.status(401).json({ message: 'Non autorisé' });
+};
+
+exports.logout = (req, res) => {
+  console.log("Requête de déconnexion reçue:", req.body); // Affiche le contenu de la requête
+  req.logout((err) => {
+    if (err) {
+      console.error("Erreur de déconnexion:", err); // Log l'erreur pour obtenir plus de détails
+      return res.status(500).json({ message: "Erreur lors de la déconnexion" });
+    }
+    console.log("Déconnexion réussie");
+    res.status(200).json({ message: 'Déconnexion réussie' });
+  });
+};
+
+
+
+

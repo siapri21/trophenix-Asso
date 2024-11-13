@@ -15,7 +15,7 @@ const MissionSection = () => (
       {/* Card Grid */}
       <div className="grid gap-8 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
         {/* Card 1: Sensibilisation */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden  transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
           <img
             src="/asserts/img/80.png"
             alt="Sensibilisation"
@@ -37,7 +37,7 @@ const MissionSection = () => (
         </div>
 
         {/* Card 2: Lobbying */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden  transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
           <img
             src="/asserts/img/57.png"
             alt="Lobbying"
@@ -59,7 +59,7 @@ const MissionSection = () => (
         </div>
 
         {/* Card 3: Réinsertion */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden  transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
           <img
             src="/asserts/img/48.png"
             alt="Réinsertion"
