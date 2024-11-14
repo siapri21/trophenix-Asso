@@ -10,6 +10,7 @@ const PORT = 3000;
 const mecenatRoutes = require("./routes/mecenatRouter");
 const authRoutes = require("./routes/authRoute");
 const profileRoutes = require("./routes/profileRoutes");
+const offersRouter = require("./routes/offersRoute")
 
 app.use(cors());
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use("/api/register", mecenatRoutes);
 app.use("/api/login", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/logout", authRoutes); // Utilisation de authRoutes pour la déconnexion
+app.use("/api/offres", offersRouter);
 
 app.listen(PORT, () => {
   console.log(`Serveur en cours d'exécution sur le port ${PORT}`);

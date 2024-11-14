@@ -14,7 +14,7 @@ import Contact from './pages/contact.jsx';
 import ContactSection from './components/ContactFooter.jsx';
 import UserProfile from './pages/UserProfile.jsx';
 import OffersList from './pages/ListOffer.jsx';
-import CookieConsentBanner from './pages/CookieConsentBanner.jsx';
+// import CookieConsentBanner from './pages/CookieConsentBanner.jsx';
 
 
 
@@ -36,7 +36,7 @@ function App() {
         <Route path="/offers" element={<OffersList/>}/>
       </Routes>
       <ContactSection/>
-     <Route path="/cookie-consent-banner" element={<CookieConsentBanner/>}/>
+     {/* <Route path="/cookie-consent-banner" element={<CookieConsentBanner/>}/> */}
       <Footer/>
       </Router>
   );

@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const OffersList = () => {
   // État pour gérer la liste des offres et les données de la nouvelle offre
-  const [offers, setOffers] = useState([
-    { id: 1, title: "Pack de Sponsoring", description: "Améliorez votre visibilité avec notre pack de sponsoring.", type: "sponsorship" },
-    { id: 2, title: "Visibilité et Réseautage", description: "Obtenez une exposition accrue auprès de notre communauté.", type: "visibility" },
-  ]);
-  const [newOffer, setNewOffer] = useState({ title: "", description: "", type: "" }); // État pour les valeurs de la nouvelle offre
-  const [showForm, setShowForm] = useState(false); // État pour contrôler l'affichage du formulaire
+  const [offers, setOffers] = useState([]);
+  const [newOffer, setNewOffer] = useState({ title: "", description: "", type: "" });
+  const [showForm, setShowForm] = useState(false);
+
+  // Fonction pour récupérer les offres depuis le back-end
+  const fetchOffers = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/offres"); // Requête GET vers le back-end
+      const data = await response.json();
+      setOffers(data); // Mettre à jour l'état avec les offres récupérées
+    } catch (error) {
+      console.error("Erreur lors de la récupération des offres:", error);
+    }
+  };
+
+  // Charger les offres au montage du composant
+  useEffect(() => {
+    fetchOffers();
+  }, []);
 
   // Fonction pour gérer les changements dans le formulaire de création d'offre
   const handleChange = (e) => {
@@ -15,23 +28,35 @@ const OffersList = () => {
     setNewOffer((prevOffer) => ({ ...prevOffer, [name]: value }));
   };
 
-  // Fonction pour ajouter une nouvelle offre à la liste
-  const handleAddOffer = (e) => {
+  // Fonction pour ajouter une nouvelle offre à la liste et envoyer au back-end
+  const handleAddOffer = async (e) => {
     e.preventDefault();
     if (newOffer.title && newOffer.description && newOffer.type) {
-      const newOfferData = { ...newOffer, id: offers.length + 1 };
-      setOffers((prevOffers) => [...prevOffers, newOfferData]); // Ajouter la nouvelle offre à la liste
-      setNewOffer({ title: "", description: "", type: "" }); // Réinitialiser les valeurs du formulaire
-      setShowForm(false); // Fermer le formulaire après l'ajout
+      try {
+        const response = await fetch("http://localhost:3000/api/offres", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newOffer),
+        });
+  
+        if (!response.ok) throw new Error("Erreur lors de l'ajout de l'offre");
+  
+        const data = await response.json(); // Récupère la réponse JSON
+        setOffers((prevOffers) => [...prevOffers, data]); // Ajoute l'offre à la liste
+        setNewOffer({ title: "", description: "", type: "" });
+        setShowForm(false);
+      } catch (error) {
+        console.error("Erreur lors de l'ajout de l'offre :", error);
+      }
     }
   };
-
+  
   return (
     <section className="bg-gray-50 p-6 mt-10">
-        
       <h2 className="text-2xl font-bold mb-4">Liste des Offres</h2>
 
-      {/* Bouton pour afficher ou masquer le formulaire de création */}
       <button
         onClick={() => setShowForm(!showForm)}
         className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 mb-4"
@@ -39,7 +64,6 @@ const OffersList = () => {
         {showForm ? "Annuler" : "Créer une Nouvelle Offre"}
       </button>
 
-      {/* Formulaire de création d'offre, visible si showForm est true */}
       {showForm && (
         <form onSubmit={handleAddOffer} className="bg-white shadow-md rounded-lg p-6 mb-6">
           <div className="mb-4">
@@ -84,7 +108,6 @@ const OffersList = () => {
             </select>
           </div>
 
-          {/* Bouton pour soumettre le formulaire et ajouter l'offre */}
           <button
             type="submit"
             className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
@@ -94,7 +117,6 @@ const OffersList = () => {
         </form>
       )}
 
-      {/* Affichage de la liste des offres existantes */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {offers.map((offer) => (
           <div key={offer.id} className="bg-white shadow-lg rounded-lg p-6">
@@ -109,12 +131,3 @@ const OffersList = () => {
 };
 
 export default OffersList;
-
-
-// *commentaire pour moi 
-
-//? État des Offres: offers stocke la liste des offres actuelles, et newOffer est un objet pour les données de la nouvelle offre.
-//* Affichage du Formulaire: showForm contrôle la visibilité du formulaire de création d'offre.
-//! Fonction handleChange: Met à jour newOffer avec les valeurs entrées par l'utilisateur.
-// *Fonction handleAddOffer: Valide et ajoute la nouvelle offre à offers et réinitialise le formulaire.
-// !Affichage des Offres: Affiche chaque offre dans une carte avec le titre, la description et le type.
