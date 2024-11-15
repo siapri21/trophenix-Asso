@@ -30,7 +30,7 @@ const AgirSections = () => {
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-center">Membres</h3>
-                  <p className="text-gray-600 text-center">
+                  <p className="text-[#2f4858] text-center">
                   Votre mécénat catalyse l'innovation et forge des passerelles durables entre le monde sportif et l'entreprise
                   </p>
                   <div className="flex justify-center mt-4">
@@ -54,7 +54,7 @@ const AgirSections = () => {
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-center">Bénévolat</h3>
-                  <p className="text-gray-600 text-center">
+                  <p className="text-[#2f4858] text-center">
                   Par vos compétences et vos disponibilités, votre engagement contribue au succès de nos actions sociétales.
                   </p>
                   <div className="flex justify-center mt-4">
@@ -78,7 +78,7 @@ const AgirSections = () => {
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-center">Mécénat / Sponsoring</h3>
-                  <p className="text-gray-600 text-center">
+                  <p className="text-[#2f4858] text-center">
                   Chaque soutien se transforme en un projet pertinent d'un impact social concret qui transforme des vies.
                   </p>
                   <div className="flex justify-center mt-4">

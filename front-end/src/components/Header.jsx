@@ -11,7 +11,7 @@ const Header = () => {
     >
       <div className="max-w-4xl mx-auto">
         <h1 className="text-xl sm:text-3xl md:text-5xl font-bold text-slate-700 text-center">
-          <span className="text-white">Renaître</span> pour réussir
+          <span className="text-[#F46D2B]">Renaître</span> pour réussir
         </h1>
 
         <p className="text-center text-slate-600 p-4 text-xs sm:text-base md:text-lg">
@@ -19,13 +19,13 @@ const Header = () => {
         </p>
 
         <div className="flex justify-center">
-          <button className="bg-orange-400 hover:bg-orange-500 text-white p-2 text-sm md:text-base font-bold rounded">
+          <button className="bg-[#F46D2B] hover:bg-orange-500 text-white p-2 text-sm md:text-base font-bold rounded">
             Adhérer
           </button>
         </div>
 
         {/* Container des images */}
-        <div className="flex flex-nowrap space-x-1 sm:space-x-2 justify-center">
+        <div className="flex flex-nowrap space-x-1 sm:space-x-3 justify-center">
           {/* Première carte image */}
           <div className="relative flex flex-col w-28 sm:w-32 md:w-44 mt-10">
             <img

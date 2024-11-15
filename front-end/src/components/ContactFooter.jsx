@@ -10,12 +10,12 @@ const ContactSection = () => {
         <p className="text-gray-600 text-center px-8">Nous sommes là pour y répondre</p>
       </div>
       <div className="flex items-center space-x-4 mt-4 sm:mt-0">
-        <p className="bg-white px-6 py-4 rounded-full text-gray-600">
+        <p className="bg-white px-6 py-4 rounded-full text-[#2f4858]">
           Contactez-nous, l’équipe trophenix à votre écoute
         </p>
        <Link to="/contact">
-        <button className="bg-orange-400 text-white py-2 px-6 rounded-full
-         hover:bg-orange-500 mr-10 mt-6 transform -translate-x-10">
+        <button className="bg-[#F46D2B] text-white py-2 px-6 rounded-full
+         hover:bg-orange-500 mr-10 mt-6 transform -translate-x-8">
           contact-nous
         </button>
         </Link>

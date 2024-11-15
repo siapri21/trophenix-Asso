@@ -8,14 +8,14 @@ const ActusSection = () => {
         
         {/* Right Text Section */}
         <div className="w-full md:w-2/5 mt-8 md:mt-0 text-center md:text-left">
-          <h2 className="text-3xl font-bold text-orange-500 mb-4">
+          <h2 className="text-3xl font-bold text-green-900 mb-4">
             Dernières Nouvelles de Notre Association
           </h2>
-          <p className="text-gray-700 mb-6">
+          <p className="text-[#2f4858] mb-6">
             Découvrez les initiatives passionnantes que nous menons pour promouvoir le sport et la culture dans notre communauté. Restez à jour avec nos événements, nos projets et les réussites de nos membres.
           </p>
           <Link to="/actualite">
-            <button className="mb-10 bg-orange-400 text-white py-2 px-6 rounded hover:bg-orange-500 transition duration-300">
+            <button className="mb-10 bg-[#F46D2B] text-white py-2 px-6 rounded hover:bg-orange-500 transition duration-300">
               Explorer nos Actualités
             </button>
           </Link>

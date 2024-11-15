@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const Actus = () => {
   return (
     <section className=" mt-20 " style={{ marginLeft: '10%', marginRight: '10%' }}>

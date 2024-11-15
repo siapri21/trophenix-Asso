@@ -74,7 +74,7 @@ const Contact = () => {
             <li>⭐ <span className='font-bold'>Nous vous accompagnons étape par étape</span> : Pour réussir ensemble votre transition vers une nouvelle carrière après le sport professionnel !</li>
           </ul>
           <div className="flex justify-center">
-            <img src="/asserts/img/hand-drawn-phoenix-silhouette_23-2150429160.jpg" alt="Phénix" className="w-36 h-40 mt-20" />
+            <img src="/asserts/img/DALL·E 2024-11-15 12.15.53 - A stylized phoenix taking flight, with subtle motifs of sports like a basketball, football, or running silhouette integrated into its wings. The image.webp" alt="Phénix" className="w-36 h-40 mt-20" />
           </div>
         </div>
 

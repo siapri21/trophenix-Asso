@@ -34,7 +34,7 @@ const About = () => (
         </p>
         <Link 
           to="/a-propos"
-          className="inline-block px-6 py-3 bg-[#ff9a61] text-[#2f4858] font-medium text-lg rounded hover:bg-[#e88b55] transition-colors"
+          className="inline-block px-6 py-3 bg-[#F46D2B] text-white font-medium text-lg rounded hover:bg-[#e88b55] transition-colors"
         >
           En savoir plus
         </Link>

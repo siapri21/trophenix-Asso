@@ -14,7 +14,12 @@ import Contact from './pages/contact.jsx';
 import ContactSection from './components/ContactFooter.jsx';
 import UserProfile from './pages/UserProfile.jsx';
 import OffersList from './pages/ListOffer.jsx';
-// import CookieConsentBanner from './pages/CookieConsentBanner.jsx';
+import CookieConsent from './pages/CookieConsentBanner.jsx';
+import LegalPage from './pages/pageLegales.jsx';
+import ActusReconversion from './pages/ActusReconversion.jsx';
+
+
+
 
 
 
@@ -31,12 +36,14 @@ function App() {
         <Route path="/parrains" element={<Parrains/>}/>
         <Route path="/mecenat" element={<Mecenat/>}/>
         <Route path="/actualite" element={<Actus/>}/>
+        <Route path="/actus-reconversion" element={<ActusReconversion/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/profile" element={<UserProfile/>}/>
         <Route path="/offers" element={<OffersList/>}/>
+        <Route path="/informations-legales" element={<LegalPage/>}/>
       </Routes>
       <ContactSection/>
-     {/* <Route path="/cookie-consent-banner" element={<CookieConsentBanner/>}/> */}
+      <CookieConsent/>
       <Footer/>
       </Router>
   );

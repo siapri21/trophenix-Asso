@@ -44,7 +44,7 @@ export default function Navbar() {
             <div className="flex flex-shrink-0 items-center">
              <Link to="/" className="logo">
              <img
-                alt="Your Company"
+                alt="trophenix"
                 src="/asserts/img/logo-groupe-ss-fond.png"
                 className="h-8 w-auto"
               />
@@ -75,7 +75,7 @@ export default function Navbar() {
             <div className="relative ml-3">
               <button
                 onClick={() => (window.location.href = "/donate")}
-                style={{ backgroundColor: "#F4A77A" }}
+                style={{ backgroundColor: "#F46D2B" }}
                 className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
               >
                 J'adhère
@@ -86,7 +86,7 @@ export default function Navbar() {
             <div className="relative ml-3">
               <button
                 onClick={() => (window.location.href = "/donate")}
-                style={{ backgroundColor: "#F4A77A" }}
+                style={{ backgroundColor: "#F46D2B" }}
                 className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
               >
                 Faire un don

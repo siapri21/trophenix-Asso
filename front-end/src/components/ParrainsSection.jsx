@@ -6,14 +6,14 @@ const ParrainsSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-between" style={{ marginLeft: '10%', marginRight: '10%' }}>
         
       <div className="w-full md:w-2/5 mt-8 md:mt-0 text-center md:text-left">
-  <h2 className="text-3xl font-bold text-orange-500 mb-4">
+  <h2 className="text-3xl font-bold text-blue-950 mb-4">
     Un accompagnement précieux pour nos champions en transition
   </h2>
-  <p className="text-gray-700 mb-6">
+  <p className="text-[#2f4858] mb-6">
     Nos parrains et marraines jouent un rôle clé dans le soutien de nos athlètes tout au long de leur reconversion. Grâce à leur expérience, leur bienveillance et leur engagement, ils aident nos sportifs à aborder sereinement cette nouvelle étape de leur vie. Ensemble, ils ouvrent la voie à de nouvelles perspectives professionnelles.
   </p>
   <Link to="/parrains">   
-    <button className="bg-orange-400 text-white py-2 px-6 rounded-full hover:bg-orange-500 transition duration-300">
+    <button className="bg-[#F46D2B] text-white py-2 px-6 rounded-full hover:bg-orange-500 transition duration-300">
       Découvrir nos parrains et marraines
     </button>
   </Link>

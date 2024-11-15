@@ -5,6 +5,7 @@ import OffersList from "./ListOffer";
 
 
 const UserProfile = ({ user, onLogout }) => {
+  const [userPassword, setUserPassword] = useState('');
   // État pour stocker les informations de profil
   const [profileData, setProfileData] = useState({
     firstName: "",
@@ -97,27 +98,21 @@ const UserProfile = ({ user, onLogout }) => {
     try {
       const response = await fetch('http://localhost:3000/api/logout', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Ajoutez ici d'autres en-têtes si nécessaire, comme l'autorisation
-        },
-        // Ne pas inclure de corps de requête si ce n'est pas nécessaire
+        credentials: 'include', // Inclure les cookies de session
       });
   
-      if (response.ok) {
-        // Gérer la déconnexion réussie
-        console.log('Déconnexion réussie');
-      } else {
-        const errorData = await response.json();
-        console.error('Erreur lors de la déconnexion :', errorData);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Erreur lors de la déconnexion : ${errorText}`);
       }
+  
+      const data = await response.json();
+      console.log(data.message); // Affiche le message de succès
     } catch (error) {
       console.error('Erreur lors de la déconnexion :', error);
     }
   };
   
-
-
 
   // Gestion de la suppression du compte
   const handleDeleteAccount = async () => {

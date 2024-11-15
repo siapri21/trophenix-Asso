@@ -45,7 +45,7 @@ const ProgrammeSection = () => {
                       </p>
                       <div className="text-center">
                         <Link to="/programmes">
-                          <button className="bg-blue-200 text-blue-800 px-3 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-300 transition-colors text-xs sm:text-sm lg:text-base">
+                          <button className="bg-[#F46D2B] text-white px-3 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-300 transition-colors text-xs sm:text-sm lg:text-base">
                             Découvrir
                           </button>
                         </Link>

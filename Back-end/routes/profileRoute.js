@@ -3,6 +3,8 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const router = express.Router();
+const ProfilController = require("../Controllers/profileController.js");
+const authController = require("../Controllers/authController.js");
 
 // Configuration de multer pour stocker les images de profil
 const storage = multer.diskStorage({
@@ -45,10 +47,21 @@ router.put("/update/:id", upload.single("profilePicture"), async (req, res) => {
   }
 });
 
+router.get('/', authController.verifyToken, (req, res) => {
+  res.status(200).json({
+     message: "Accès au profil réussi", 
+     user: req.user });
+    });
+
+// Route pour récupérer le profil de l'utilisateur
+router.get("/:id", authController.verifyToken,ProfilController.getUserProfile);
+
+// Route pour mettre à jour le profil de l'utilisateur
+router.put("/update/:id", ProfilController.updateUserProfile);
+
 // Route pour déconnecter l'utilisateur
-router.post("/logout", (req, res) => {
-    // Logique de déconnexion (ex. : invalidation du token, destruction de session, etc.)
-    res.status(200).json({ message: "Déconnexion réussie" });
-  });
+router.post('/logout', ProfilController.logout);
+
+
 
 module.exports = router;

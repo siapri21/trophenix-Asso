@@ -5,13 +5,13 @@ const bcrypt = require("bcrypt"); // Importer bcrypt
 
 // Méthode pour créer une nouvelle demande de mécénat
 exports.createMecenat = async (req, res) => {
-  const { companyName, firstName, lastName, email, phoneNumber, password } = req.body; // Assurez-vous de récupérer le mot de passe
+  console.log(req.body); // Ajoutez ceci pour déboguer
+  const { companyName, firstName, lastName, email, phone, password } = req.body; // Assurez-vous de récupérer le mot de passe
   const sql = "INSERT INTO demandes_mecenat (companyName, firstName, lastName, email, phone, hashed_password) VALUES (?, ?, ?, ?, ?, ?)";
-
-  // Vérifier si le mot de passe est bien fourni
-  if (!password) {
-    return res.status(400).json({ error: "Mot de passe manquant" });
-  }
+// Vérification des champs obligatoires
+if (!companyName || !firstName || !lastName || !email || !phone || !password) {
+  return res.status(400).json({ error: "Tous les champs sont requis, y compris le mot de passe" });
+}
 
   try {
     // Hachage du mot de passe
@@ -23,7 +23,7 @@ exports.createMecenat = async (req, res) => {
       firstName,
       lastName,
       email,
-      phoneNumber,
+      phone,
       hashedPassword, // Utiliser hashedPassword ici
     ]);
 
@@ -38,7 +38,8 @@ exports.createMecenat = async (req, res) => {
 
 // Méthode pour récupérer les demandes de mécénat
 exports.getMecenats = async (req, res) => {
-  console.log("variable requette query", req.query);
+  // Affichage des paramètres de la requête
+  console.log("Paramètres de la requête:", req.query);
 
   const { interestDomain, minAmount, maxAmount } = req.query;
   let sql = "SELECT * FROM demandes_mecenat WHERE 1=1";
@@ -57,69 +58,27 @@ exports.getMecenats = async (req, res) => {
     filters.push(maxAmount);
   }
 
+  // Affichage de la requête SQL générée
+  console.log("Requête SQL générée:", sql);
+  console.log("Filtres utilisés:", filters);
+
   try {
     const [results] = await db.query(sql, filters);
+    
+    // Vérification des résultats
+    console.log("Résultats de la requête:", results);
+    
+    // Envoi de la réponse
     res.status(200).json(results);
   } catch (err) {
-    console.error(
-      "Erreur lors de la récupération des demandes de mécénat:",
-      err
-    );
-    res
-      .status(500)
-      .json({
-        error: "Erreur lors de la récupération des demandes de mécénat",
-      });
-  }
-};
-
-// Récupérer le profil utilisateur
-exports.getUserProfile = async (req, res) => {
-  const userId = req.params.id;
-  try {
-    const [result] = await db.query("SELECT * FROM demandes_mecenat WHERE id = ?", [userId]);
-    if (result.length === 0) {
-      return res.status(404).json({ message: "Utilisateur non trouvé" });
-    }
-    res.status(200).json(result[0]);
-  } catch (err) {
-    console.error("Erreur lors de la récupération du profil utilisateur:", err);
-    res.status(500).json({ error: "Erreur lors de la récupération du profil utilisateur" });
+    console.error("Erreur lors de la récupération des demandes de mécénat:", err);
+    res.status(500).json({
+      error: "Erreur lors de la récupération des demandes de mécénat",
+    });
   }
 };
 
 
-// Mettre à jour le profil utilisateur
-exports.updateUserProfile = async (req, res) => {
-  const userId = req.params.id;
-  const { firstName, lastName, email, phoneNumber, companyName, companyAddress, mot_de_passe, profilePicture } = req.body;
-
-  try {
-    let updateQuery = `
-      UPDATE demandes_mecenat
-      SET firstName = ?, lastName = ?, email = ?, phone = ?, companyName = ?, companyAddress = ? , profilePicture = ?
-    `;
-    const queryParams = [firstName, lastName, email, phoneNumber, companyName, companyAddress, profilePicture];
 
 
-    if (mot_de_passe) {
-      const hashedPassword = await bcrypt.hash(mot_de_passe, 10);
-      updateQuery += ", hashed_password = ?";
-      queryParams.push(hashedPassword);
-    } else {
-      console.error("Erreur : Le mot de passe est manquant.");
-      // Gérer le cas où le mot de passe est manquant (peut-être retourner une erreur ou une réponse)
-    }
-
-
-    updateQuery += " WHERE id = ?";
-    queryParams.push(userId);
-
-    await db.query(updateQuery, queryParams);
-    res.status(200).json({ message: "Profil mis à jour avec succès" });
-  } catch (err) {
-    console.error("Erreur lors de la mise à jour du profil utilisateur:", err);
-    res.status(500).json({ error: "Erreur lors de la mise à jour du profil utilisateur" });
-  }
-};
 

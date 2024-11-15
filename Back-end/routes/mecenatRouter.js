@@ -18,12 +18,6 @@ router.get('/', mecenatController.getMecenats);
 
 
 
-// Route pour récupérer le profil de l'utilisateur
-router.get("/profile/:id", mecenatController.getUserProfile);
-
-// Route pour mettre à jour le profil de l'utilisateur
-router.put("/profile/update/:id", mecenatController.updateUserProfile);
-
 // Exportation du routeur pour qu'il soit accessible dans le fichier principal `index.js`
 // Cela permet de regrouper les routes dans `/api/mecenat` comme défini dans `index.js`.
 module.exports = router;
