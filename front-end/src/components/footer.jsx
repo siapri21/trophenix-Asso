@@ -1,5 +1,5 @@
 import React from 'react';
-import { InstagramOutlined, LinkedinOutlined, } from '@ant-design/icons';
+// import { InstagramOutlined, LinkedinOutlined, } from '@ant-design/icons';
 
 const Footer = () => {
   return (
@@ -25,15 +25,15 @@ const Footer = () => {
   target="_blank"
   rel="noopener noreferrer"
 >
-  <InstagramOutlined
+  {/* <InstagramOutlined
     style={{ fontSize: '30px', margin: '0 10px', color: '#E4405F' }}
-  />
+  /> */}
 </a>
 
             {/* Icône LinkedIn */}
-            <a href="https://www.linkedin.com/company/trophenix-asso/" target="_blank" rel="noopener noreferrer">
+            {/* <a href="https://www.linkedin.com/company/trophenix-asso/" target="_blank" rel="noopener noreferrer">
               <LinkedinOutlined size={30} style={{ margin: '0 10px', color: '#0077B5' }} />
-            </a>
+            </a> */}
           </div>
 
           {/* Navigation */}
