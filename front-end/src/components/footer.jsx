@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { InstagramOutlined, LinkedinOutlined, } from '@ant-design/icons';
 
 const Footer = () => {
   return (
@@ -20,12 +20,19 @@ const Footer = () => {
         <div className="flex justify-center sm:justify-between items-center space-x-4 mb-4">
           <div className="flex space-x-4">
             {/* Icône Instagram */}
-            <a href="https://www.instagram.com/trophenix_asso/profilecard" target="_blank" rel="noopener noreferrer">
-              <FaInstagram size={30} style={{ margin: '0 10px', color: '#E4405F' }} />
-            </a>
+            <a
+  href="https://www.instagram.com/trophenix_asso/profilecard"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <InstagramOutlined
+    style={{ fontSize: '30px', margin: '0 10px', color: '#E4405F' }}
+  />
+</a>
+
             {/* Icône LinkedIn */}
             <a href="https://www.linkedin.com/company/trophenix-asso/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin size={30} style={{ margin: '0 10px', color: '#0077B5' }} />
+              <LinkedinOutlined size={30} style={{ margin: '0 10px', color: '#0077B5' }} />
             </a>
           </div>
 
