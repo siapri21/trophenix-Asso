@@ -21,10 +21,16 @@ router.post('/send-email', async (req, res) => {
     // Sauvegarder dans MongoDB
     await newMessage.save();
 
-    // Envoyez l'email à l'association
-    await sendEmail(formData)
-
-
+      // Envoyez l'email à l'association
+      await sendEmail({
+        name,
+        email,
+        company,
+        phone,
+        subject,
+        message,
+      });
+  
     res.status(201).json({ message: 'Message envoyé avec succès !' });
   } catch (error) {
     console.error('Erreur lors de l\'envoi du message : ', error);

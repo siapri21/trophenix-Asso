@@ -84,13 +84,14 @@ export default function Navbar() {
 
             {/* btn faire un don */}
             <div className="relative ml-3">
-              <button
-                onClick={() => (window.location.href = "/donate")}
+             <a href="https://www.sandbox.paypal.com/ncp/payment/2VESQCCF949EU" target="_blank">
+             <button
                 style={{ backgroundColor: "#F46D2B" }}
                 className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
               >
                 Faire un don
               </button>
+             </a>
             </div>
           </div>
         </div>

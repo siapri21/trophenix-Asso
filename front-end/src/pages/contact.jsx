@@ -25,7 +25,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/api/users', {
+      const response = await fetch('http://localhost:8000/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Contact = () => {
       } else {
         toast.error("Erreur lors de l'envoi du message.");
       }
-      
+
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire", error);
       toast.error("Erreur lors de l'envoi du message.");
@@ -73,9 +73,10 @@ const Contact = () => {
             <li>⭐ <span className='font-bold'>Nous vous présentons notre association</span> : Pour vous présenter nos solutions et vous aider à définir votre démarche de reconversion.</li>
             <li>⭐ <span className='font-bold'>Nous vous accompagnons étape par étape</span> : Pour réussir ensemble votre transition vers une nouvelle carrière après le sport professionnel !</li>
           </ul>
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
+            <img src="/asserts/img/hand-drawn-phoenix-silhouette_23-2150429160.jpg" alt="Phénix" className="w-36 h-40 mt-20" />
             <img src="/asserts/img/DALL·E 2024-11-15 12.15.53 - A stylized phoenix taking flight, with subtle motifs of sports like a basketball, football, or running silhouette integrated into its wings. The image.webp" alt="Phénix" className="w-36 h-40 mt-20" />
-          </div>
+          </div> */}
         </div>
 
         {/* Right: Contact Form */}

@@ -1,5 +1,5 @@
-// Importer la bibliothèque mongoose pour interagir avec MongoDB
 const mongoose = require('mongoose');
+// Importer la bibliothèque mongoose pour interagir avec MongoDB
 
 // Définir un schéma pour le modèle 'Contact' en utilisant mongoose.Schema
 const contactSchema = new mongoose.Schema({
