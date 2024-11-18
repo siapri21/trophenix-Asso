@@ -1,5 +1,4 @@
 import React from 'react';
-import imageSrc from '/asserts/img/36.png'; // Assurez-vous que le chemin de l'image est correct
 
 const Parrains = () => {
   return (

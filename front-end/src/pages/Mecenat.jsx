@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // Importation des bibliothèques nécessaires
 import axios from "axios"; // Importation de la bibliothèque axios pour les requêtes HTTP
 import { useNavigate } from "react-router-dom";
-import UserProfile from "./UserProfile";
+
 
 const Mecenat = () => {
   const navigate = useNavigate() 

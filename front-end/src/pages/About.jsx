@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grow, Slide, Zoom } from '@mui/material';
-import { ReactTyped } from 'react-typed';
-import { Fade } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-import { Link } from 'react-router-dom';
+
 
 
 

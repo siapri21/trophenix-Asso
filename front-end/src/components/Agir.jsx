@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grow, Zoom } from '@mui/material';
+import { Grow } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 
 const AgirSections = () => {
