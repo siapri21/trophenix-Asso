@@ -10,6 +10,6 @@ const authController = require('../Controllers/authController');
 // console.log("affiche le mot de passe");
 router.post('/', authController.login);
 
-
+// console.log("Route de connexion appelée avec :", req.body);
 
 module.exports = router;

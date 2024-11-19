@@ -5,7 +5,9 @@ import OffersList from "./ListOffer";
 
 
 const UserProfile = ({ user, onLogout }) => {
-  const [userPassword, setUserPassword] = useState('');
+  // const [userPassword, setUserPassword] = useState('');
+  
+  const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
   // État pour stocker les informations de profil
   const [profileData, setProfileData] = useState({
     firstName: "",
@@ -83,7 +85,7 @@ const UserProfile = ({ user, onLogout }) => {
     }
   
     try {
-      const response = await axios.put(`http://localhost:3000/api/profile/update/${user.id}`, formData, {
+      const response = await axios.put(`${API_URL}/profile/update/${user.id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -96,7 +98,7 @@ const UserProfile = ({ user, onLogout }) => {
   
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/logout', {
+      const response = await fetch(`${API_URL}/logout`, {
         method: 'POST',
         credentials: 'include', // Inclure les cookies de session
       });
@@ -117,7 +119,7 @@ const UserProfile = ({ user, onLogout }) => {
   // Gestion de la suppression du compte
   const handleDeleteAccount = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/profile/${user.id}`);
+      await axios.delete(`${API_URL}/profile/${user.id}`);
       OnLogged();
     } catch (error) {
       console.error("Erreur lors de la suppression du compte :", error);

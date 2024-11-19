@@ -10,6 +10,8 @@ const Mecenat = () => {
   const [LoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({id: null});
 
+  const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
+
   // État pour stocker les données du formulaire d'inscription
   const [formData, setFormData] = useState({
     gender: "",
@@ -119,8 +121,9 @@ const handleSubmit = async (e) => {
       
       // Envoie la requête POST selon le mode (inscription ou connexion)
       const response = isSignUp
-        ? await axios.post("http://localhost:3000/api/register", formData) 
-        : await axios.post("http://localhost:3000/api/login", loginData);
+        ? await axios.post(`${API_URL}/register`, formData) 
+        
+        : await axios.post(`${API_URL}/login`, loginData);
 
       setSuccessMessage(
         isSignUp ? "Inscription réussie !" : "Connexion réussie !"

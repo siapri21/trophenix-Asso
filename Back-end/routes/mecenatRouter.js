@@ -16,6 +16,8 @@ router.post('/', mecenatController.createMecenat);
 // La fonction `getMecenats` du contrôleur est appelée pour exécuter la logique de récupération et filtrage.
 router.get('/', mecenatController.getMecenats);
 
+// console.log("Route d'inscription appelée avec :", req.body);
+
 
 
 // Exportation du routeur pour qu'il soit accessible dans le fichier principal `index.js`
