@@ -1,2 +1,7 @@
 # Ignorer les fichiers d'environnement
 .env
+EMAIL_USER="ouattara10siap@gmail.com"
+EMAIL_PASSWORD="fcmd hcpu gvkq nomx"
+MONGO_URL="mongodb://localhost:27017/trophenix"
+JWT_SECRET=g!Y4d$B7hZ2eW@f8JqV9m^F5uTn*E1p3KqL7rM#W2sH0xT8iN
+PORT = 8000
