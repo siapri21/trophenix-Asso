@@ -1,11 +1,14 @@
+require('dotenv').config(); // Charge les variables d'environnement en local
+
 const mysql = require('mysql2/promise');
 
-// Créer un pool de connexions
+// Configuration de la base de données
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '', // Utilisez le mot de passe correct si nécessaire
-    database: 'mecenat'
+    host: process.env.DB_HOST,     // Hôte (Render ou localhost)
+    user: process.env.DB_USER,     // Utilisateur MySQL
+    password: process.env.DB_PASSWORD, // Mot de passe MySQL
+    database: process.env.DB_NAME, // Nom de la base de données
+    port: process.env.DB_PORT || 3306, // Port par défaut : 3306
 });
 
-module.exports = pool; // Exporter le pool
+module.exports = pool;

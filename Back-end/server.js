@@ -44,7 +44,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Connexion à MongoDB avec Mongoose
-mongoose.connect(process.env.MONGO_URL)  // Utilisation de la variable d'environnement pour la connexion
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})  // Utilisation de la variable d'environnement pour la connexion
+
     .then(() => console.log('MongoDB connecté'))  // Confirmation de la connexion à MongoDB
     .catch((error) => console.error('Erreur de connexion à MongoDB :', error));
 
