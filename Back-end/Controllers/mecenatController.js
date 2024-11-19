@@ -1,5 +1,5 @@
 const db = require("../config/db"); // Import direct du pool de connexions
-const bcrypt = require("bcrypt"); // Importer bcrypt
+const bcryptjs = require("bcryptjs"); // Importer bcrypt
 
 
 
@@ -15,7 +15,7 @@ if (!companyName || !firstName || !lastName || !email || !phone || !password) {
 
   try {
     // Hachage du mot de passe
-    const hashedPassword = await bcrypt.hash(password, 10); // Hacher le mot de passe
+    const hashedPassword = await bcryptjs.hash(password, 10); // Hacher le mot de passe
 
     // Insérer les données dans la base de données
     const [result] = await db.query(sql, [

@@ -1,5 +1,5 @@
 const db = require("../config/db");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // Connexion de l'utilisateur
@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
     const user = users[0];
 
     // Vérifiez le mot de passe
-    const isPasswordValid = await bcrypt.compare(password, user.hashed_password);
+    const isPasswordValid = await bcryptjs.compare(password, user.hashed_password);
 
     if (!user.hashed_password || !isPasswordValid) {
       return res.status(400).json({ message: "Mot de passe incorrect" });

@@ -31,7 +31,7 @@ exports.getUserProfile = async (req, res) => {
   
   
       if (mot_de_passe) {
-        const hashedPassword = await bcrypt.hash(mot_de_passe, 10);
+        const hashedPassword = await bcryptjs.hash(mot_de_passe, 10);
         updateQuery += ", hashed_password = ?";
         queryParams.push(hashedPassword);
       } else {
