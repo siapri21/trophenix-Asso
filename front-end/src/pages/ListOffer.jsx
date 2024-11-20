@@ -10,7 +10,7 @@ const OffersList = () => {
   // Fonction pour récupérer les offres depuis le back-end
   const fetchOffers = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/offres`); // Requête GET vers le back-end
+      const response = await fetch(`http://localhost:8000/api/offres`); // Requête GET vers le back-end
       const data = await response.json();
       setOffers(data); // Mettre à jour l'état avec les offres récupérées
     } catch (error) {

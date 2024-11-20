@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config(); // Charger les variables d'environnement
 
 // Définir le port de l'application
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7000;
 
 // Routes
 const mecenatRoutes = require("./routes/mecenatRouter");

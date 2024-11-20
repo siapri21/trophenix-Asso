@@ -85,7 +85,7 @@ const UserProfile = ({ user, onLogout }) => {
     }
   
     try {
-      const response = await axios.put(`http://localhost:3000/api/profile/update/${user.id}`, formData, {
+      const response = await axios.put(`http://localhost:8000/api/profile/update/${user.id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -98,7 +98,7 @@ const UserProfile = ({ user, onLogout }) => {
   
   const handleLogout = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/logout`, {
+      const response = await fetch(`http://localhost:8000/api/logout`, {
         method: 'POST',
         credentials: 'include', // Inclure les cookies de session
       });
@@ -119,7 +119,7 @@ const UserProfile = ({ user, onLogout }) => {
   // Gestion de la suppression du compte
   const handleDeleteAccount = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/profile/${user.id}`);
+      await axios.delete(`http://localhost:8000/api/profile/${user.id}`);
       OnLogged();
     } catch (error) {
       console.error("Erreur lors de la suppression du compte :", error);
