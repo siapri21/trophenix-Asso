@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-  const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
+  // const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,7 +26,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${API_URL}/send-email`, {
+      const response = await fetch(`http://localhost:3000/api/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -5,12 +5,12 @@ const OffersList = () => {
   const [offers, setOffers] = useState([]);
   const [newOffer, setNewOffer] = useState({ title: "", description: "", type: "" });
   const [showForm, setShowForm] = useState(false);
-  const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
+  // const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
 
   // Fonction pour récupérer les offres depuis le back-end
   const fetchOffers = async () => {
     try {
-      const response = await fetch(`${API_URL}/offres`); // Requête GET vers le back-end
+      const response = await fetch(`http://localhost:3000/api/offres`); // Requête GET vers le back-end
       const data = await response.json();
       setOffers(data); // Mettre à jour l'état avec les offres récupérées
     } catch (error) {

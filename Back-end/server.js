@@ -24,7 +24,6 @@ const app = express();
 app.use(cors({
     origin: [
         'http://localhost:5173',  // CORS autorisé pour cette origine (front-end)
-        'https://trophenix-asso.onrender.com'
     ],
     credentials: true,  // Autoriser les cookies
 }));
