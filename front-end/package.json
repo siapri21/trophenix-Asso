@@ -1,6 +1,7 @@
 {
   "name": "trophenix",
   "private": true,
+  "homepage": "https://trophenix-asso.onrender.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

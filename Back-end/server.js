@@ -43,6 +43,15 @@ app.use(
   })
 );
 
+
+// Servir les fichiers du build React
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Redirection pour gérer les routes React
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 // Initialisation de Passport pour l'authentification
 app.use(passport.initialize());
 app.use(passport.session());
