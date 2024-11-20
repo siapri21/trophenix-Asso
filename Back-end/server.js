@@ -5,6 +5,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo");
 const bodyParser = require("body-parser");
+const path = require("path"); // Ajouter cette ligne pour l'importation de path
 require("dotenv").config(); // Charger les variables d'environnement
 
 // Définir le port de l'application
@@ -39,15 +40,16 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URL, // URL de connexion MongoDB
     }),
-    cookie: { secure: false }, // Non sécurisé pour développement local
+    cookie: {
+      secure: process.env.NODE_ENV === 'production', // Sécuriser en production
+    },
   })
 );
-
 
 // Servir les fichiers du build React
 app.use(express.static(path.join(__dirname, 'build')));
 
-// Redirection pour gérer les routes React
+// Redirection pour gérer les routes React (toutes les autres requêtes vont être redirigées vers index.html)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

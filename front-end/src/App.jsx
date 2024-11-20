@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import About from './pages/About';
-import  Events from './pages/Events.jsx';
+import Events from './pages/Events.jsx';
 import Footer from './components/footer';
 import Programmes from './pages/Programmes.jsx';
 import Parrains from './pages/Parrains.jsx';
@@ -18,34 +18,30 @@ import CookieConsent from './pages/CookieConsentBanner.jsx';
 import LegalPage from './pages/pageLegales.jsx';
 import ActusReconversion from './pages/ActusReconversion.jsx';
 
-
-
-
-
-
 function App() {
   return (
-    <Router>
+    <Router basename="/"> {/* Ajouter le basename si l'app est dans un sous-dossier */}
       <Navbar />
-
+      
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="/a-propos" element={<About />} />
-        <Route path="/evenement" element={<Events/>}/>
-        <Route path="/programmes" element={<Programmes/>}/>
-        <Route path="/parrains" element={<Parrains/>}/>
-        <Route path="/mecenat" element={<Mecenat/>}/>
-        <Route path="/actualite" element={<Actus/>}/>
-        <Route path="/actus-reconversion" element={<ActusReconversion/>}/>
-        <Route path="/contact" element={<Contact/>}/>
-        <Route path="/profile" element={<UserProfile/>}/>
-        <Route path="/offers" element={<OffersList/>}/>
-        <Route path="/informations-legales" element={<LegalPage/>}/>
+        <Route path="/evenement" element={<Events />} />
+        <Route path="/programmes" element={<Programmes />} />
+        <Route path="/parrains" element={<Parrains />} />
+        <Route path="/mecenat" element={<Mecenat />} />
+        <Route path="/actualite" element={<Actus />} />
+        <Route path="/actus-reconversion" element={<ActusReconversion />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/offers" element={<OffersList />} />
+        <Route path="/informations-legales" element={<LegalPage />} />
       </Routes>
-      <ContactSection/>
-      <CookieConsent/>
-      <Footer/>
-      </Router>
+      
+      <ContactSection />
+      <CookieConsent />
+      <Footer />
+    </Router>
   );
 }
 
