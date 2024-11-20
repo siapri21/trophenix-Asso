@@ -121,9 +121,9 @@ const handleSubmit = async (e) => {
       
       // Envoie la requête POST selon le mode (inscription ou connexion)
       const response = isSignUp
-        ? await axios.post(`${API_URL}register`, formData) 
+        ? await axios.post(`${API_URL}/register`, formData) 
         
-        : await axios.post(`${API_URL}login`, loginData);
+        : await axios.post(`${API_URL}/login`, loginData);
 
       setSuccessMessage(
         isSignUp ? "Inscription réussie !" : "Connexion réussie !"
