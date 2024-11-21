@@ -24,7 +24,7 @@ const app = express();
 // Middleware pour autoriser les requêtes venant du front-end
 app.use(
   cors({
-    origin: ["https://trophenix-asso.onrender.com"], // CORS autorisé pour cette origine (front-end)
+    origin: ["http://localhost:5173"], // CORS autorisé pour cette origine (front-end)
     credentials: true, // Autoriser les cookies
   })
 );
@@ -76,9 +76,9 @@ app.use("/api/logout", authRoutes); // Route pour la déconnexion
 app.use("/api", contactRoutes); // Route pour MongoDB (gestion des messages)
 
 // Route de test pour vérifier le serveur
-app.get("/", (req, res) => {
-  res.send("🌟 API Trophenix fonctionne !");
-});
+// app.get("/", (req, res) => {
+//   res.send("🌟 API Trophenix fonctionne !");
+// });
 
 // Démarrer le serveur
 app.listen(PORT, () => {

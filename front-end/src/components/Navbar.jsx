@@ -73,6 +73,7 @@ export default function Navbar() {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* btn adhere */}
             <div className="relative ml-3">
+              <a href="https://www.helloasso.com/associations/trophelix-association/formulaires/1" target="_blank"> 
               <button
                 onClick={() => (window.location.href = "/donate")}
                 style={{ backgroundColor: "#F46D2B" }}
@@ -80,6 +81,7 @@ export default function Navbar() {
               >
                 J'adhère
               </button>
+              </a>
             </div>
 
             {/* btn faire un don */}

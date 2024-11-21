@@ -5,7 +5,7 @@ const OffersList = () => {
   const [offers, setOffers] = useState([]);
   const [newOffer, setNewOffer] = useState({ title: "", description: "", type: "" });
   const [showForm, setShowForm] = useState(false);
-  const API_URL = "https://trophenix-asso-api.onrender.com/api";
+  // const API_URL = "https://trophenix-asso-api.onrender.com/api";
 
   // Fonction pour récupérer les offres depuis le back-end
   const fetchOffers = async () => {
@@ -34,7 +34,7 @@ const OffersList = () => {
     e.preventDefault();
     if (newOffer.title && newOffer.description && newOffer.type) {
       try {
-        const response = await fetch(`${API_URL}/offres`, {
+        const response = await fetch(`http://localhost:8000/api/offres`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

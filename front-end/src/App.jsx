@@ -17,6 +17,7 @@ import OffersList from './pages/ListOffer.jsx';
 import CookieConsent from './pages/CookieConsentBanner.jsx';
 import LegalPage from './pages/pageLegales.jsx';
 import ActusReconversion from './pages/ActusReconversion.jsx';
+import Dashboard from './dashboard/Dashboard.jsx';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/offers" element={<OffersList />} />
         <Route path="/informations-legales" element={<LegalPage />} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
       
       <ContactSection />

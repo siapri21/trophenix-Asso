@@ -77,7 +77,7 @@ const SectionDon = () => {
 
           {/* Donate button */}
           <a
-            href="https://www.sandbox.paypal.com/ncp/payment/2VESQCCF949EU"
+            href="https://donorbox.org/donations-trophenix"
             target="_blank"
             rel="noopener noreferrer"
             className="block bg-red-500 text-white py-2 px-4 rounded-lg text-center hover:bg-red-600 transition"
