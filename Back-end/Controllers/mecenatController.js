@@ -82,3 +82,44 @@ exports.getMecenats = async (req, res) => {
 
 
 
+
+// Middleware pour vérifier si l'utilisateur est authentifié
+exports.isAuthenticated = (req, res, next) => {
+  if (!req.session || !req.session.userId) {
+    return res.status(401).json({ message: "Utilisateur non authentifié." });
+  }
+  next();
+};
+
+// Contrôleur pour la déconnexion
+exports.logout = async () => {
+  try {
+    const token = localStorage.getItem('token'); // Récupérez le token du localStorage
+
+    const response = await fetch('/api/logout', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`, // Utilisez le token récupéré
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      // Effacez les données locales
+      localStorage.removeItem('token');
+      
+      // Redirection ou mise à jour de l'état ici
+      // Par exemple :
+      // window.location.href = '/login'; // Pour rediriger vers la page de connexion
+      
+      console.log('Déconnexion réussie');
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Erreur lors de la déconnexion');
+    }
+  } catch (error) {
+    console.error('Erreur de déconnexion:', error);
+    // Gérez l'erreur ici (par exemple, affichez un message à l'utilisateur)
+  }
+};
+

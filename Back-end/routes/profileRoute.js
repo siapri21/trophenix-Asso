@@ -59,8 +59,12 @@ router.get("/:id", authController.verifyToken,ProfilController.getUserProfile);
 // Route pour mettre à jour le profil de l'utilisateur
 router.put("/update/:id", ProfilController.updateUserProfile);
 
-// Route pour déconnecter l'utilisateur
-router.post('/logout', ProfilController.logout);
+// // Route pour déconnecter l'utilisateur
+// router.post('/logout', ProfilController.logout);
+
+
+
+
 
 
 

@@ -19,6 +19,8 @@ router.get('/', mecenatController.getMecenats);
 // console.log("Route d'inscription appelée avec :", req.body);
 
 
+// Route de déconnexion
+router.post("/logout", mecenatController.isAuthenticated, mecenatController.logout);
 
 // Exportation du routeur pour qu'il soit accessible dans le fichier principal `index.js`
 // Cela permet de regrouper les routes dans `/api/mecenat` comme défini dans `index.js`.

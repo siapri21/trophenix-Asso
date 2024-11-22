@@ -58,22 +58,23 @@ exports.getUserProfile = async (req, res) => {
 
 // ProfilController.js
 
-exports.logout = (req, res) => {
-    // Logique de déconnexion
-    if (!req.isAuthenticated()) {
-      console.log('Utilisateur non trouvé : non authentifié');
-      return res.status(400).json({ message: 'Utilisateur non trouvé' });
-    }
+// exports.logout = (req, res) => {
+//     console.log("ICI");
+    
+//     if (!req.isAuthenticated()) {
+//       // console.log('Utilisateur non trouvé : non authentifié');
+//       return res.status(400).json({ message: 'Utilisateur non trouvé' });
+//     }
   
-    req.logout((err) => {
-      if (err) {
-        console.error('Erreur lors de la déconnexion log:', err);
-        return res.status(500).json({ message: 'Erreur lors de la déconnexion' });
-      }
-      res.clearCookie('connect.sid'); // Effacer le cookie de session, si nécessaire
-      res.status(200).json({ message: 'Déconnexion réussie' });
-    });
-  };
+//     req.logout((err) => {
+//       if (err) {
+//         console.error('Erreur lors de la déconnexion log:', err);
+//         return res.status(500).json({ message: 'Erreur lors de la déconnexion' });
+//       }
+//       res.clearCookie('connect.sid'); // Effacer le cookie de session, si nécessaire
+//       res.status(200).json({ message: 'Déconnexion réussie' });
+//     });
+//   };
   
   
   

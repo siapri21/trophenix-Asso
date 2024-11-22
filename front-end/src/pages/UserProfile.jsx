@@ -96,26 +96,43 @@ const UserProfile = ({ user, onLogout }) => {
     }
   };
   
+
   const handleLogout = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/logout`, {
-        method: 'POST',
-        credentials: 'include', // Inclure les cookies de session
+      console.log("[DEBUG] Début de la déconnexion côté frontend...");
+  
+      const response = await fetch("http://localhost:8000/api/logout", {
+        method: "POST",
+        credentials: "include", // Permet d'inclure les cookies pour la session
       });
   
       if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Erreur lors de la déconnexion : ${errorText}`);
+        console.error("[DEBUG] Réponse non valide ou erreur serveur :", response.status);
+        const errorResponse = await response.json().catch(() => null);
+        if (errorResponse) {
+          console.error("[ERROR] Erreur retournée par le serveur :", errorResponse);
+        }
+        return;
       }
   
       const data = await response.json();
-      console.log(data.message); // Affiche le message de succès
+      console.log("[DEBUG] Déconnexion réussie :", data);
+  
+      // Redirection ou logique post-déconnexion
+      window.location.href = "/login"; // Redirige vers la page de connexion
     } catch (error) {
-      console.error('Erreur lors de la déconnexion :', error);
+      console.error("[ERROR] Erreur lors de la déconnexion :", error.message);
     }
   };
   
 
+
+
+
+
+
+
+  
   // Gestion de la suppression du compte
   const handleDeleteAccount = async () => {
     try {
@@ -147,6 +164,8 @@ const UserProfile = ({ user, onLogout }) => {
             Modifier les Infos
           </button>
         </div>
+
+
         <div className="flex items-center gap-4">
           <button
             onClick={handleLogout}
@@ -154,6 +173,11 @@ const UserProfile = ({ user, onLogout }) => {
           >
             Déconnexion
           </button>
+
+
+
+
+
            {/* Photo de profil */}
            <img
             src={profileData.profilePicture || "/asserts/img/116.png"} // Image par défaut si aucune photo
