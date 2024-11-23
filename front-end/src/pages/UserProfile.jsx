@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import OffersList from "./ListOffer";
+import SEO from "../components/SEO";
+
 
 
 const UserProfile = ({ user, onLogout }) => {
   // const [userPassword, setUserPassword] = useState('');
-  
+
   // const API_URL = "https://trophenix-asso-api.onrender.com/api";
   // État pour stocker les informations de profil
   const [profileData, setProfileData] = useState({
@@ -16,9 +18,11 @@ const UserProfile = ({ user, onLogout }) => {
     phoneNumber: "",
     companyName: "",
     companyAddress: "",
-    mot_de_passe : "",
-    confirme_mot_de_passe:""
+    mot_de_passe: "",
+    confirme_mot_de_passe: ""
   });
+
+
   const [profilePicture, setProfilePicture] = useState(""); // État pour l'URL de la photo de profil
   const [editing, setEditing] = useState(false);
   const [errors, setErrors] = useState({});
@@ -53,7 +57,7 @@ const UserProfile = ({ user, onLogout }) => {
     if (!profileData.companyName) newErrors.companyName = "Le nom de la société est";
     if (!profileData.companyAddress) newErrors.companyAddress = "L'adresse de la société";
     if (profileData.mot_de_passe !== profileData.confirme_mot_de_passe)
-    setErrors(newErrors);
+      setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
@@ -69,7 +73,7 @@ const UserProfile = ({ user, onLogout }) => {
     if (!user || !user.id) {
       console.error("Erreur : l'utilisateur ou son ID est indéfini");
       return;
-  } 
+    }
 
 
     const formData = new FormData();
@@ -79,11 +83,11 @@ const UserProfile = ({ user, onLogout }) => {
     formData.append("phoneNumber", profileData.phoneNumber);
     formData.append("companyName", profileData.companyName);
     formData.append("companyAddress", profileData.companyAddress);
-  
+
     if (profilePicture) {
       formData.append("profilePicture", profilePicture); // Ajoute l'image
     }
-  
+
     try {
       const response = await axios.put(`http://localhost:8000/api/profile/update/${user.id}`, formData, {
         headers: {
@@ -95,17 +99,17 @@ const UserProfile = ({ user, onLogout }) => {
       console.error("Erreur lors de la mise à jour du profil :", error);
     }
   };
-  
+
 
   const handleLogout = async () => {
     try {
       console.log("[DEBUG] Début de la déconnexion côté frontend...");
-  
+
       const response = await fetch("http://localhost:8000/api/logout", {
         method: "POST",
         credentials: "include", // Permet d'inclure les cookies pour la session
       });
-  
+
       if (!response.ok) {
         console.error("[DEBUG] Réponse non valide ou erreur serveur :", response.status);
         const errorResponse = await response.json().catch(() => null);
@@ -114,25 +118,19 @@ const UserProfile = ({ user, onLogout }) => {
         }
         return;
       }
-  
+
       const data = await response.json();
       console.log("[DEBUG] Déconnexion réussie :", data);
-  
+
       // Redirection ou logique post-déconnexion
       window.location.href = "/login"; // Redirige vers la page de connexion
     } catch (error) {
       console.error("[ERROR] Erreur lors de la déconnexion :", error.message);
     }
   };
-  
 
 
 
-
-
-
-
-  
   // Gestion de la suppression du compte
   const handleDeleteAccount = async () => {
     try {
@@ -148,13 +146,20 @@ const UserProfile = ({ user, onLogout }) => {
   };
 
 
+
   return (
     <section className="bg-gray-100 mt-20">
+      <SEO
+        title="À propos de Trophenix"
+        description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+        keywords="association sportive, reconversion, mécénat, sponsoring"
+      />
+
       {/* Navbar avec la photo de profil et le bouton de déconnexion */}
       <nav className="flex justify-between items-center bg-white p-4 shadow-md">
         <div className="flex space-x-4">
-          <button    onClick={handleCreateOffer}
-          className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+          <button onClick={handleCreateOffer}
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
             Créer une Offre
           </button>
           <button
@@ -178,8 +183,8 @@ const UserProfile = ({ user, onLogout }) => {
 
 
 
-           {/* Photo de profil */}
-           <img
+          {/* Photo de profil */}
+          <img
             src={profileData.profilePicture || "/asserts/img/116.png"} // Image par défaut si aucune photo
             alt="Profile"
             className="w-20 h-20 rounded-full mr-6"
@@ -337,12 +342,12 @@ const UserProfile = ({ user, onLogout }) => {
                 </button>
               )}
 
-               <button
-          onClick={handleDeleteAccount}
-          className="w-48 bg-red-700 text-white py-2 px-4 rounded-lg mt-4 ml-9 hover:bg-red-800 transition duration-300"
-        >
-          Supprimer le Compte
-        </button>
+              <button
+                onClick={handleDeleteAccount}
+                className="w-48 bg-red-700 text-white py-2 px-4 rounded-lg mt-4 ml-9 hover:bg-red-800 transition duration-300"
+              >
+                Supprimer le Compte
+              </button>
 
             </div>
           </form>

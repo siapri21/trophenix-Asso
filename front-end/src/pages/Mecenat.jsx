@@ -1,14 +1,15 @@
 import React, { useState } from "react"; // Importation des bibliothèques nécessaires
 import axios from "axios"; // Importation de la bibliothèque axios pour les requêtes HTTP
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 
 
 const Mecenat = () => {
-  const navigate = useNavigate() 
+  const navigate = useNavigate()
   // État pour déterminer si l'utilisateur est en mode inscription ou connexion
   const [isSignUp, setIsSignUp] = useState(true);
   const [LoggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState({id: null});
+  const [user, setUser] = useState({ id: null });
 
   // const API_URL = "https://trophenix-asso-api.onrender.com/api";
 
@@ -31,9 +32,9 @@ const Mecenat = () => {
     email: "",
     password: "",
   });
-  
 
-  
+
+
   // Fonction pour gérer le succès de la connexion
   const handleLoginSuccess = (userData) => {
     setLoggedIn(true); // Mettre à jour l'état de connexion
@@ -109,63 +110,72 @@ const Mecenat = () => {
     }
   };
 
-// Fonction de soumission du formulaire
-const handleSubmit = async (e) => {
-  e.preventDefault(); // Empêche le rechargement de la page
-  if (validateForm()) { // Valider le formulaire
-    try {
-      const data = new FormData();
-      Object.keys(formData).forEach((key) => {
-        data.append(key, formData[key]);
-      });
-      
-      // Envoie la requête POST selon le mode (inscription ou connexion)
-      const response = isSignUp
-        ? await axios.post(`http://localhost:8000/api/register`, formData) 
-        
-        : await axios.post(`http://localhost:8000/api/login`, loginData);
-
-      setSuccessMessage(
-        isSignUp ? "Inscription réussie !" : "Connexion réussie !"
-      );
-
-      console.log(response.data); // Affiche la réponse du serveur
-
-      if (isSignUp) {
-        // Si l'inscription réussit
-        setFormData({
-          gender: "",
-          firstName: "",
-          lastName: "",
-          companyName: "",
-          email: "",
-          phoneNumber: "",
-          password: "",
-          confirmPassword: "",
-          alerts: false,
-          partnerNews: false,
+  // Fonction de soumission du formulaire
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Empêche le rechargement de la page
+    if (validateForm()) { // Valider le formulaire
+      try {
+        const data = new FormData();
+        Object.keys(formData).forEach((key) => {
+          data.append(key, formData[key]);
         });
-        setIsSignUp(false); // Basculer vers le mode connexion
-      } else {
-        // Si la connexion réussit
-        handleLoginSuccess(response.data.user); // Appel de la fonction de succès de connexion
-      }
 
-    } catch (error) {
-      if (error.response) {
-        console.error("Erreur lors de la soumission :", error.response.data);
-      } else {
-        console.error("Erreur de la soumission", error);
+        // Envoie la requête POST selon le mode (inscription ou connexion)
+        const response = isSignUp
+          ? await axios.post(`http://localhost:8000/api/register`, formData)
+
+          : await axios.post(`http://localhost:8000/api/login`, loginData);
+
+        setSuccessMessage(
+          isSignUp ? "Inscription réussie !" : "Connexion réussie !"
+        );
+
+        console.log(response.data); // Affiche la réponse du serveur
+
+        if (isSignUp) {
+          // Si l'inscription réussit
+          setFormData({
+            gender: "",
+            firstName: "",
+            lastName: "",
+            companyName: "",
+            email: "",
+            phoneNumber: "",
+            password: "",
+            confirmPassword: "",
+            alerts: false,
+            partnerNews: false,
+          });
+          setIsSignUp(false); // Basculer vers le mode connexion
+        } else {
+          // Si la connexion réussit
+          handleLoginSuccess(response.data.user); // Appel de la fonction de succès de connexion
+        }
+
+      } catch (error) {
+        if (error.response) {
+          console.error("Erreur lors de la soumission :", error.response.data);
+        } else {
+          console.error("Erreur de la soumission", error);
+        }
       }
     }
-  }
 
 
 
   };
 
+
+
   return (
     <section className="flex justify-center items-center bg-gray-100 mt-20">
+
+      <SEO
+        title="À propos de Trophenix"
+        description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+        keywords="association sportive, reconversion, mécénat, sponsoring"
+      />
+
       <form
         className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full mt-16"
         onSubmit={handleSubmit}
@@ -346,8 +356,8 @@ const handleSubmit = async (e) => {
         </p>
       </form>
 
-  
-        
+
+
     </section>
   );
 };

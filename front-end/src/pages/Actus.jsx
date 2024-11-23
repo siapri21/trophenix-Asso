@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 
 
 const Actus = () => {
+  <SEO 
+    title="À propos de Trophenix" 
+    description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels." 
+    keywords="association sportive, reconversion, mécénat, sponsoring"
+  />
+
   return (
     <section className=" mt-20 " style={{ marginLeft: '10%', marginRight: '10%' }}>
     {/* Existing Navbar Section */}

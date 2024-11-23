@@ -1,14 +1,24 @@
 import React from 'react';
 import { BiGlobe, BiTimeFive, BiBarChartAlt2 } from 'react-icons/bi';
+import SEO from '../components/SEO';
+
 
 const Programmes = () => {
+
   return (
-    <section className="bg-white py-12 px-6 text-center mt-16 flex flex-col items-center" style={{ marginLeft: '10%', marginRight: '10%' }}>
+    <section className="bg-white py-12 px-6 text-center mt-16 flex flex-col items-center"
+      style={{ marginLeft: '10%', marginRight: '10%' }}>
+      <SEO
+        title="À propos de Trophenix"
+        description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+        keywords="association sportive, reconversion, mécénat, sponsoring"
+      />
+
       {/* Première section */}
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:ml-6 text-left">
           <h1 className="font-bold text-3xl text-[#F46D2B] pr-6">
-          Rejoignez-nous pour redonner un sens à votre avenir
+            Rejoignez-nous pour redonner un sens à votre avenir
           </h1>
         </div>
         <div className="relative w-full md:w-1/2 mb-6 md:mb-0">
@@ -113,40 +123,40 @@ const Programmes = () => {
         </button>
       </div>
 
-     {/* Soutien à la reconversion */}
-<div className="py-12 mt-10 bg-gray-200" style={{ width: '100vw', paddingLeft: '10%', paddingRight: '10%' }}>
-  <div className="text-center mb-12">
-    <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
-      Vous pouvez soutenir la reconversion
-    </h2>
-    <h2 className="text-3xl md:text-4xl font-bold text-orange-500">
-      des sportifs professionnels
-    </h2>
-  </div>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-full px-4">
-    <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center w-80 transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
-      <BiBarChartAlt2 className="text-green-500 mx-auto mb-4" size={50} />
-      <h3 className="text-xl font-semibold mb-4">Entreprises</h3>
-      <p className="text-gray-600">
-        En devenant partenaire de nos programmes, vous exercez activement votre responsabilité sociale.
-      </p>
-    </div>
-    <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center w-80 transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
-      <BiGlobe className="text-green-500 mx-auto mb-4" size={50} />
-      <h3 className="text-xl font-semibold mb-4">Organisations</h3>
-      <p className="text-gray-600">
-        Rejoignez-nous afin d’unir nos forces pour créer un écosystème sportif durable et responsable.
-      </p>
-    </div>
-    <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center w-80 transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
-      <BiTimeFive className="text-green-500 mx-auto mb-4" size={50} />
-      <h3 className="text-xl font-semibold mb-4">Particuliers</h3>
-      <p className="text-gray-600">
-        Vous pouvez contribuer en tant que bénévole mais aussi en nous soutenant grâce à vos donations.
-      </p>
-    </div>
-  </div>
-</div>
+      {/* Soutien à la reconversion */}
+      <div className="py-12 mt-10 bg-gray-200" style={{ width: '100vw', paddingLeft: '10%', paddingRight: '10%' }}>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
+            Vous pouvez soutenir la reconversion
+          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-orange-500">
+            des sportifs professionnels
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-full px-4">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center w-80 transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
+            <BiBarChartAlt2 className="text-green-500 mx-auto mb-4" size={50} />
+            <h3 className="text-xl font-semibold mb-4">Entreprises</h3>
+            <p className="text-gray-600">
+              En devenant partenaire de nos programmes, vous exercez activement votre responsabilité sociale.
+            </p>
+          </div>
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center w-80 transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
+            <BiGlobe className="text-green-500 mx-auto mb-4" size={50} />
+            <h3 className="text-xl font-semibold mb-4">Organisations</h3>
+            <p className="text-gray-600">
+              Rejoignez-nous afin d’unir nos forces pour créer un écosystème sportif durable et responsable.
+            </p>
+          </div>
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 text-center w-80 transform transition-all duration-500 hover:scale-110 hover:shadow-xl">
+            <BiTimeFive className="text-green-500 mx-auto mb-4" size={50} />
+            <h3 className="text-xl font-semibold mb-4">Particuliers</h3>
+            <p className="text-gray-600">
+              Vous pouvez contribuer en tant que bénévole mais aussi en nous soutenant grâce à vos donations.
+            </p>
+          </div>
+        </div>
+      </div>
 
 
 

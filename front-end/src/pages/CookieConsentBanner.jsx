@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SEO from '../components/SEO';
 
 function CookieConsent() {
   // Utilisez le localStorage pour conserver l'état de la bannière
@@ -28,9 +29,19 @@ function CookieConsent() {
     }
   }, []);
 
+
+
+
   return (
     isVisible && (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+
+        <SEO
+          title="À propos de Trophenix"
+          description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+          keywords="association sportive, reconversion, mécénat, sponsoring"
+        />
+
         <div className="bg-white p-6 rounded-lg max-w-md w-full shadow-lg">
           <h2 className="text-lg font-semibold mb-4">Nous avons besoin de votre clic !</h2>
           <p className="text-sm text-gray-700 mb-4">
@@ -55,7 +66,7 @@ function CookieConsent() {
             </button>
             <div className="flex gap-4">
               <button
-                onClick={() => {/* Logic for cookie settings */}}
+                onClick={() => {/* Logic for cookie settings */ }}
                 className="text-sm text-gray-500 underline"
               >
                 Paramètres des cookies

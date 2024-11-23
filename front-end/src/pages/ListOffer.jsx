@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import SEO from "../components/SEO";
+
 
 const OffersList = () => {
   // État pour gérer la liste des offres et les données de la nouvelle offre
@@ -41,9 +43,9 @@ const OffersList = () => {
           },
           body: JSON.stringify(newOffer),
         });
-  
+
         if (!response.ok) throw new Error("Erreur lors de l'ajout de l'offre");
-  
+
         const data = await response.json(); // Récupère la réponse JSON
         setOffers((prevOffers) => [...prevOffers, data]); // Ajoute l'offre à la liste
         setNewOffer({ title: "", description: "", type: "" });
@@ -53,9 +55,18 @@ const OffersList = () => {
       }
     }
   };
-  
+
+
+
+
   return (
     <section className="bg-gray-50 p-6 mt-10">
+      <SEO
+        title="À propos de Trophenix"
+        description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+        keywords="association sportive, reconversion, mécénat, sponsoring"
+      />
+
       <h2 className="text-2xl font-bold mb-4">Liste des Offres</h2>
 
       <button

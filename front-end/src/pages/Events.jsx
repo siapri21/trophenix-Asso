@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import Grow from "@mui/material/Grow";
+import SEO from "../components/SEO";
+
 
 const EventCard = () => {
   const [checked, setChecked] = useState(true);
+
+
+
   return (
     <section className="container mx-auto p-4 mt-20">
+
+      <SEO
+        title="À propos de Trophenix"
+        description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+        keywords="association sportive, reconversion, mécénat, sponsoring"
+      />
+
       {/* Title and Parallelogram */}
       <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto py-8">
         {/* Image à gauche */}

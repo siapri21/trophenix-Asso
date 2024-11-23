@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-Link
+import SEO from '../components/SEO';
+
 
 export  default function ActusReconversion  (){
 
@@ -45,6 +46,13 @@ export  default function ActusReconversion  (){
   
   // Si une erreur est survenue, affiche le message d'erreur
   if (error) return <p>Erreur: {error}</p>;
+
+  <SEO 
+    title="À propos de Trophenix" 
+    description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels." 
+    keywords="association sportive, reconversion, mécénat, sponsoring"
+  />
+
 
   return (
     <div className="container mx-auto p-4">

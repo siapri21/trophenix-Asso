@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Marquee from '../components/Partenaires';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SEO from '../components/SEO';
+
 
 const Contact = () => {
   // const API_URL = "https://trophenix-asso-back-end.onrender.com/api";
@@ -54,6 +56,12 @@ const Contact = () => {
       toast.error("Erreur lors de l'envoi du message.");
     }
   };
+
+  <SEO 
+    title="À propos de Trophenix" 
+    description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels." 
+    keywords="association sportive, reconversion, mécénat, sponsoring"
+  />
 
   return (
     <div className="container mx-auto px-4 py-8 mt-20">

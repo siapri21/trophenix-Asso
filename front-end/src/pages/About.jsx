@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grow, Slide, Zoom } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-
+import SEO from '../components/SEO';
 
 
 
@@ -16,7 +16,13 @@ const About = () => {
       triggerOnce: true, // l'animation ne s'active qu'une seule fois
       threshold: 0.3,    // déclenche l'animation lorsque 30% de la section est visible
     });
- 
+
+    <SEO 
+    title="À propos de Trophenix" 
+    description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels." 
+    keywords="association sportive, reconversion, mécénat, sponsoring"
+  />
+
 
   return (
     <section className="bg-white py-12 px-6 text-center mt-16 flex flex-col items-center">

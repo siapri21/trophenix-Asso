@@ -1,8 +1,17 @@
 import React from 'react';
+import SEO from '../components/SEO';
+
 
 const Parrains = () => {
+
   return (
     <section className="bg-white py-12 px-6 text-center mt-16 flex flex-col items-center">
+      <SEO
+        title="À propos de Trophenix"
+        description="En savoir plus sur Trophenix, une association dédiée à la reconversion des sportifs professionnels."
+        keywords="association sportive, reconversion, mécénat, sponsoring"
+      />
+
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
 
         <div className="md:w-1/2 w-full md:ml-6 text-center md:text-left">
