@@ -9,6 +9,8 @@ import ProgrammeSection from "../components/ProgrammeSection";
 import Agir from "../components/Agir";
 import SectionDon from "../components/SectionDon";
 import Actus from "../components/Actus";
+import SEO from "../components/SEO";
+
 
 export default function Home() {
     return (

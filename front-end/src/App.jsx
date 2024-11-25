@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import About from './pages/About';
@@ -18,10 +18,17 @@ import CookieConsent from './pages/CookieConsentBanner.jsx';
 import LegalPage from './pages/pageLegales.jsx';
 import ActusReconversion from './pages/ActusReconversion.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   return (
-    <Router basename="/"> {/* Ajouter le basename si l'app est dans un sous-dossier */}
+    <HelmetProvider>
+      <BrowserRouter
+       basename="/"
+       future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}> {/* Ajouter le basename si l'app est dans un sous-dossier */}
       <Navbar />
       
       <Routes>
@@ -43,7 +50,8 @@ function App() {
       <ContactSection />
       <CookieConsent />
       <Footer />
-    </Router>
+    </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
