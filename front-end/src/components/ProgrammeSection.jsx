@@ -21,7 +21,8 @@ const ProgrammeSection = () => {
             <div className="text-center lg:text-left mb-10 lg:mb-0 lg:w-1/2">
               <h2 className="text-3xl font-bold text-[#2f4858]">Nos Programmes</h2>
               <p className="mt-2 text-lg text-[#2f4858] mx-auto max-w-xl mt-6">
-                Nous accompagnons les sportifs professionnels dans leur transition vers de nouvelles opportunités. Nos programmes sont conçus pour les aider à réussir leur reconversion tout en capitalisant sur leurs compétences uniques.
+                Nous accompagnons les sportifs professionnels dans leur transition vers de nouvelles opportunités.
+                 Nos programmes sont conçus pour les aider à réussir leur reconversion tout en capitalisant sur leurs compétences uniques.
               </p>
             </div>
           </Slide>
@@ -34,7 +35,7 @@ const ProgrammeSection = () => {
                   <img
                     src="/asserts/img/man-woman-running-track-side-view.jpg"
                     alt="Celebrating players"
-                    className="rounded-lg object-cover w-full h-auto"
+                    className="rounded-lg object-cover w-full h-auto "
                   />
 
                   {/* Carte d'informations */}

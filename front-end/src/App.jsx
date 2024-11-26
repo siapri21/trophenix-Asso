@@ -7,7 +7,7 @@ import About from './pages/About';
 import Events from './pages/Events.jsx';
 import Footer from './components/footer';
 import Programmes from './pages/Programmes.jsx';
-import Parrains from './pages/Parrains.jsx';
+// import Parrains from './pages/Parrains.jsx';
 import Mecenat from './pages/Mecenat.jsx';
 import Actus from './pages/Actus.jsx';
 import Contact from './pages/contact.jsx';
@@ -36,7 +36,7 @@ function App() {
         <Route path="/a-propos" element={<About />} />
         <Route path="/evenement" element={<Events />} />
         <Route path="/programmes" element={<Programmes />} />
-        <Route path="/parrains" element={<Parrains />} />
+        {/* <Route path="/parrains" element={<Parrains />} /> */}
         <Route path="/mecenat" element={<Mecenat />} />
         <Route path="/actualite" element={<Actus />} />
         <Route path="/actus-reconversion" element={<ActusReconversion />} />

@@ -73,9 +73,8 @@ export default function Navbar() {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* btn adhere */}
             <div className="relative ml-3">
-              <a href="https://www.helloasso.com/associations/trophelix-association/formulaires/1" target="_blank"> 
+              <a href="https://www.helloasso.com/associations/trophelix-association/adhesions/adhesion-citoyenne" target="_blank"> 
               <button
-                onClick={() => (window.location.href = "/donate")}
                 style={{ backgroundColor: "#F46D2B" }}
                 className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"
               >
@@ -86,7 +85,7 @@ export default function Navbar() {
 
             {/* btn faire un don */}
             <div className="relative ml-3">
-             <a href="https://www.sandbox.paypal.com/ncp/payment/2VESQCCF949EU" target="_blank">
+             <a href="https://www.helloasso.com/associations/trophelix-association/formulaires/1" target="_blank">
              <button
                 style={{ backgroundColor: "#F46D2B" }}
                 className="relative flex items-center rounded text-white text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 focus:ring-offset-white hover:opacity-90 transition duration-200 ease-in-out"

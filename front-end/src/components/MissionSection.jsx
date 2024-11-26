@@ -26,7 +26,7 @@ const MissionSection = () => (
             <p className="text-gray-600 text-center">
               Informer et éduquer le public sur les défis de la reconversion des sportifs professionnels.
             </p>
-            <Link>
+            <Link to='/a-propos'>
               <div className="flex justify-center mt-4">
                 <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
                   En savoir plus
@@ -49,7 +49,7 @@ const MissionSection = () => (
               Défendre les droits des sportifs et influencer les politiques publiques pour améliorer leur réinsertion.
             </p>
             <div className="flex justify-center mt-4">
-              <Link to="/">
+              <Link to="/apropos">
                 <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
                   En savoir plus
                 </button>
@@ -71,7 +71,7 @@ const MissionSection = () => (
               Accompagner les sportifs dans leur transition vers une nouvelle carrière et les intégrer dans la société.
             </p>
             <div className="flex justify-center mt-4">
-              <Link to="/">
+              <Link to="/a-propos">
                 <button className="px-4 py-2 bg-white border-2 border-[#ff9a61] text-[#ff9a61] rounded">
                   En savoir plus
                 </button>
