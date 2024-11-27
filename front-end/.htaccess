@@ -1,0 +1,13 @@
+# Activer la réécriture d'URL
+RewriteEngine On
+
+# Rediriger toutes les requêtes vers index.html sauf si le fichier ou dossier existe
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Ajouter des en-têtes pour le cache et la sécurité (optionnel)
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+</IfModule>
