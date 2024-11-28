@@ -24,7 +24,7 @@ const app = express();
 // Middleware pour autoriser les requêtes venant du front-end
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // CORS autorisé pour cette origine (front-end)
+    origin: ["https://trophenix-asso.onrender.com"], // CORS autorisé pour cette origine (front-end)
     credentials: true, // Autoriser les cookies
   })
 );
