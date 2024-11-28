@@ -60,7 +60,9 @@ app.use(passport.session());
 
 // Connexion à MongoDB avec gestion des erreurs
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL , {
+    ssl: false, // Désactive SSL si c'est nécessaire (ajouter cette ligne pour éviter les erreurs SSL)
+  })
   .then(() => console.log("✅ MongoDB atlas connecté"))
   .catch((error) => {
     console.error("❌ Erreur de connexion à MongoDB atlas :", error.message);
