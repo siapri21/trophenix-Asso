@@ -61,9 +61,9 @@ app.use(passport.session());
 // Connexion à MongoDB avec gestion des erreurs
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => console.log("✅ MongoDB connecté"))
+  .then(() => console.log("✅ MongoDB atlas connecté"))
   .catch((error) => {
-    console.error("❌ Erreur de connexion à MongoDB :", error.message);
+    console.error("❌ Erreur de connexion à MongoDB atlas :", error.message);
     process.exit(1); // Quitte le serveur si MongoDB ne se connecte pas
   });
 
@@ -76,9 +76,9 @@ app.use("/api/logout", authRoutes); // Route pour la déconnexion
 app.use("/api", contactRoutes); // Route pour MongoDB (gestion des messages)
 
 // Route de test pour vérifier le serveur
-// app.get("/", (req, res) => {
-//   res.send("🌟 API Trophenix fonctionne !");
-// });
+app.get("/", (req, res) => {
+  res.send("🌟 API Trophenix fonctionne !");
+});
 
 // Démarrer le serveur
 app.listen(PORT, () => {
