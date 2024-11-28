@@ -9,7 +9,7 @@ const path = require("path"); // Ajouter cette ligne pour l'importation de path
 require("dotenv").config(); // Charger les variables d'environnement
 
 // Définir le port de l'application
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 4000;
 
 // Routes
 const mecenatRoutes = require("./routes/mecenatRouter");

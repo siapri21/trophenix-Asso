@@ -3,7 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 // Importation du contrôleur qui contient la logique métier pour les demandes de mécénat
+console.log("Requiring mecenatController...");
 const mecenatController = require('../Controllers/mecenatController');
+console.log("mecenatController required successfully");
 
 // Route POST pour créer une nouvelle demande de mécénat
 // Lorsque l'utilisateur soumet un formulaire pour devenir mécène, cette route est appelée.
