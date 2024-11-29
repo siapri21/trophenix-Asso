@@ -24,7 +24,7 @@ const app = express();
 // Middleware pour autoriser les requêtes venant du front-end
 app.use(
   cors({
-    origin: ["https://trophenix-asso.onrender.com"], // CORS autorisé pour cette origine (front-end)
+    origin: ["http://localhost:5173"], // CORS autorisé pour cette origine (front-end)
     credentials: true, // Autoriser les cookies
   })
 );
@@ -62,6 +62,11 @@ app.use(passport.session());
 mongoose
   .connect(process.env.MONGO_URL , {
     ssl: false, // Désactive SSL si c'est nécessaire (ajouter cette ligne pour éviter les erreurs SSL)
+    // serverApi: {
+    //   version: ServerApiVersion.v1,
+    //   strict: true,
+    //   deprecationErrors: true,
+    // }
   })
   .then(() => console.log("✅ MongoDB atlas connecté"))
   .catch((error) => {

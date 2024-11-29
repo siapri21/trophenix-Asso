@@ -24,7 +24,8 @@ const sendEmail = async (formData) => {
       from: process.env.EMAIL_USER,
       to: 'ouattara10siap@gmail.com', // Email de réception (association)
       subject: `Nouveau message de ${formData.name}`,
-      text: `Nom : ${formData.name}\nEmail : ${formData.email}\nEntreprise : ${formData.company}\nTéléphone : ${formData.phone}\nObjet : ${formData.subject}\nMessage : ${formData.message}`,
+      text: `Nom : ${formData.name}\nEmail : ${formData.email}\nEntreprise : ${formData.company}\nTéléphone 
+      : ${formData.phone}\nObjet : ${formData.subject}\nMessage : ${formData.message}`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -35,7 +36,8 @@ const sendEmail = async (formData) => {
       from: process.env.EMAIL_USER,
       to: formData.email, // Email de l'utilisateur
       subject: 'Confirmation de réception de votre message',
-      text: `Bonjour ${formData.name},\n\nNous avons bien reçu votre message et nous vous répondrons dans les meilleurs délais.\n\nMerci de nous avoir contactés.\n\nCordialement,\nL’équipe Trophenix`,
+      text: `Bonjour ${formData.name},\n\nNous avons bien reçu votre message et nous vous répondrons dans les meilleurs délais.
+      \n\nMerci de nous avoir contactés.\n\nCordialement,\nL’équipe Trophenix`,
     };
     await transporter.sendMail(mailOptionsToUser);
     // console.log('Email envoyé avec succès à l\'utilisateur');

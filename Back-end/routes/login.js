@@ -4,7 +4,7 @@ const Contact = require('../models/Contact');
 const sendEmail = require('../utils/emailServices');
 
 // Route POST pour recevoir et sauvegarder les données du formulaire de contact
-router.post('https://api-trophenix.onrender.com/send-email', async (req, res) => {
+router.post('http://localhost:8000/api/send-email', async (req, res) => {
   try {
     const { name, email, company, phone, subject, message } = req.body;
 
